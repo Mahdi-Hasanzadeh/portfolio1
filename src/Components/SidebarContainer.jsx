@@ -33,10 +33,11 @@ const SidebarContainer = ({ pageNumber, setPageNumber }) => {
         <Menu />
       </Fab>
       <Box
+        className="scroll"
         sx={{
           backgroundColor: grey[900],
           height: "100vh",
-          overflowY: "auto",
+          overflowY: "scroll",
           overflowX: "hidden",
           borderRadius: "8px",
         }}
@@ -44,7 +45,7 @@ const SidebarContainer = ({ pageNumber, setPageNumber }) => {
         <SidebarContent pageNumber={pageNumber} setPageNumber={setPageNumber} />
 
         <Drawer
-          className="drawer"
+          className="drawer scroll"
           variant="temporary"
           onClose={handleDrawer}
           sx={{

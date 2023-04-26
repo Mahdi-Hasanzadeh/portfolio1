@@ -1,5 +1,25 @@
 import { Box, Divider, Chip, LinearProgress, Typography } from "@mui/material";
+
+import { useState, useEffect } from "react";
+
 const Skills = ({ skillName, percentage }) => {
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    let timer = setTimeout(() => {
+      // setValue((prevData) =>
+      //   prevData >= percentage ? percentage : prevData + 10
+      // );
+      if (value === percentage) return;
+      setValue((prevData) => prevData + Math.ceil(Math.random() * 10));
+      if (value >= percentage) setValue(percentage);
+    }, 1000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [value]);
+
   return (
     <Box
       className="skill-hover"
@@ -16,8 +36,7 @@ const Skills = ({ skillName, percentage }) => {
         },
         justifyContent: "center",
         alignItems: "center",
-
-        mb: 2,
+        mb: 3,
         mt: 2,
       }}
     >
@@ -45,13 +64,16 @@ const Skills = ({ skillName, percentage }) => {
         }}
       >
         <LinearProgress
+          color={value < 15 ? "error" : value < 30 ? "warning" : "success"}
           sx={{
+            height: 10,
             width: "85%",
+            borderRadius: 1,
           }}
-          value={percentage}
+          value={value}
           variant="determinate"
         />
-        <Typography sx={{}}>{percentage}%</Typography>
+        <Typography>{value}%</Typography>
       </Box>
     </Box>
   );

@@ -13,6 +13,30 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 } */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.scroll::-webkit-scrollbar {
+  width: 7px;
+  border-radius: 20px;
+  background-color: rgb(207, 196, 196);
+}
+
+.scroll::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+.scroll::-webkit-scrollbar-thumb {
+  background-color: rgb(74, 74, 78);
+  transition: 0.5s ease-in-out;
+}
+.scroll::-webkit-scrollbar-thumb:hover {
+  border-radius: 10px;
+}
+.scroll::-webkit-scrollbar-button {
+  background-color: rgb(205, 191, 191);
+}
 
 /* hompage CSS */
 
@@ -170,7 +194,7 @@
 }
 
 .skill-box {
-  animation: skills 5s ease-in;
+  animation: skills 1s ease-in;
 }
 
 .skill-hover {

@@ -1,11 +1,4 @@
-import {
-  Box,
-  Divider,
-  Chip,
-  Avatar,
-  Typography,
-  LinearProgress,
-} from "@mui/material";
+import { Box, Divider, Chip, Avatar, Typography } from "@mui/material";
 import {
   CodeRounded,
   KeyboardDoubleArrowRightRounded,
@@ -20,12 +13,13 @@ const About = () => {
   return (
     <>
       <Box
+        className="scroll"
         sx={{
           backgroundColor: "rgb(246, 241, 241)",
-          overflowY: "auto",
-          overflowX: "auto",
+          height: "100vh",
+          overflowY: "scroll",
+          overflowX: "hidden",
           borderRadius: "10px",
-          mb: 5,
         }}
       >
         <Grid container>
@@ -63,7 +57,9 @@ const About = () => {
                 display: "flex",
                 alignItems: "flex-start",
                 flexDirection: "column",
-                padding: { xs: 0, sm: 0, md: 2, lg: 2, xl: 2 },
+                // padding: { xs: 0, sm: 0, md: 2, lg: 2, xl: 2 },
+                py: 1.2,
+
                 gap: 2,
                 mt: { xs: 3, sm: 2, md: 0, lg: 0, xl: 0 },
               }}
@@ -79,6 +75,7 @@ const About = () => {
                     xl: "18px",
                   },
                   textAlign: "center",
+                  ml: { xs: 0, sm: 1, md: 1, lg: 1, xl: 1 },
                 }}
               >
                 {" "}
@@ -101,6 +98,7 @@ const About = () => {
                     lg: "18px",
                     xl: "18px",
                   },
+                  ml: { xs: 0, sm: 1, md: 1, lg: 1, xl: 1 },
                   textAlign: "center",
                 }}
               >
@@ -124,6 +122,7 @@ const About = () => {
                     lg: "18px",
                     xl: "18px",
                   },
+                  ml: { xs: 0, sm: 1, md: 1, lg: 1, xl: 1 },
                   textAlign: "center",
                 }}
               >
@@ -147,6 +146,7 @@ const About = () => {
                     lg: "18px",
                     xl: "18px",
                   },
+                  ml: { xs: 0, sm: 1, md: 1, lg: 1, xl: 1 },
                   textAlign: "center",
                 }}
               >
@@ -170,6 +170,8 @@ const About = () => {
                     lg: "18px",
                     xl: "18px",
                   },
+
+                  ml: { xs: 0, sm: 1, md: 1, lg: 1, xl: 1 },
                   textAlign: "center",
                 }}
               >

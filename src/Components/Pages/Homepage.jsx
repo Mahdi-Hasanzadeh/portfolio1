@@ -52,10 +52,11 @@ const HomePage = () => {
 
   return (
     <Box
-      className="homepage-box"
+      className="homepage-box scroll"
       sx={{
         backgroundImage: `url(${View})`,
         height: "100vh",
+        overflowY: "scroll",
         backgroundRepeat: "repeat-y",
         backgroundPosition: "bottom",
         display: "flex",

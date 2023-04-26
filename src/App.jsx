@@ -19,10 +19,10 @@ function App() {
     <ThemeProvider theme={Theme}>
       <Grid container>
         <Grid
-          sx={{
-            height: "100vh",
-            oveflowY: "auto",
-          }}
+          // sx={{
+          //   height: "100vh",
+          //   oveflowY: "hidden",
+          // }}
           xs={0}
           sm={0}
           md={3}
@@ -35,10 +35,10 @@ function App() {
           />
         </Grid>
         <Grid
-          sx={{
-            height: "100vh",
-            oveflowY: "auto",
-          }}
+          // sx={{
+          //   height: "100vh",
+          //   oveflowY: "hidden",
+          // }}
           xs={12}
           sm={12}
           md={9}
