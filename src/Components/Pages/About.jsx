@@ -41,7 +41,7 @@ const About = () => {
             >
               <Chip
                 label={
-                  <Typography>
+                  <Typography ml={1}>
                     {" "}
                     <CodeRounded
                       sx={{
@@ -58,13 +58,24 @@ const About = () => {
               sx={{
                 display: "flex",
                 alignItems: "flex-start",
-
                 flexDirection: "column",
-                padding: 2,
+                padding: { xs: 0, sm: 0, md: 2, lg: 2, xl: 2 },
                 gap: 2,
+                mt: { xs: 3, sm: 2, md: 0, lg: 0, xl: 0 },
               }}
             >
-              <Typography>
+              <Typography
+                sx={{
+                  fontSize: {
+                    xs: "15px",
+                    sm: "16px",
+                    md: "18px",
+                    lg: "18px",
+                    xl: "18px",
+                  },
+                  textAlign: "center",
+                }}
+              >
                 {" "}
                 <KeyboardDoubleArrowRightRounded
                   sx={{
@@ -74,7 +85,19 @@ const About = () => {
                 />{" "}
                 Full Name: Mahdi Hasanzadeh
               </Typography>
-              <Typography>
+
+              <Typography
+                sx={{
+                  fontSize: {
+                    xs: "15px",
+                    sm: "16px",
+                    md: "18px",
+                    lg: "18px",
+                    xl: "18px",
+                  },
+                  textAlign: "center",
+                }}
+              >
                 {" "}
                 <KeyboardDoubleArrowRightRounded
                   sx={{
@@ -84,7 +107,19 @@ const About = () => {
                 />{" "}
                 Age:25
               </Typography>
-              <Typography>
+
+              <Typography
+                sx={{
+                  fontSize: {
+                    xs: "15px",
+                    sm: "16px",
+                    md: "18px",
+                    lg: "18px",
+                    xl: "18px",
+                  },
+                  textAlign: "center",
+                }}
+              >
                 {" "}
                 <KeyboardDoubleArrowRightRounded
                   sx={{
@@ -94,7 +129,19 @@ const About = () => {
                 />{" "}
                 City:Herat,Afghanistan
               </Typography>
-              <Typography>
+
+              <Typography
+                sx={{
+                  fontSize: {
+                    xs: "15px",
+                    sm: "16px",
+                    md: "18px",
+                    lg: "18px",
+                    xl: "18px",
+                  },
+                  textAlign: "center",
+                }}
+              >
                 {" "}
                 <KeyboardDoubleArrowRightRounded
                   sx={{
@@ -104,7 +151,19 @@ const About = () => {
                 />{" "}
                 Phone Number: 0902-934-2619
               </Typography>
-              <Typography>
+
+              <Typography
+                sx={{
+                  fontSize: {
+                    xs: "15px",
+                    sm: "16px",
+                    md: "18px",
+                    lg: "18px",
+                    xl: "18px",
+                  },
+                  textAlign: "center",
+                }}
+              >
                 {" "}
                 <KeyboardDoubleArrowRightRounded
                   sx={{

@@ -22,7 +22,13 @@ const Skills = ({ skillName, percentage }) => {
     >
       <Divider
         sx={{
-          width: "15%",
+          width: {
+            xs: "calc(50%-25px)",
+            sm: "calc(50%-25px)",
+            md: "15%",
+            lg: "15%",
+            xl: "15%",
+          },
         }}
         textAlign="left"
       >
