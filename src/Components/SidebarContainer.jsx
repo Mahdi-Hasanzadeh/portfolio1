@@ -44,6 +44,7 @@ const SidebarContainer = ({ pageNumber, setPageNumber }) => {
         <SidebarContent pageNumber={pageNumber} setPageNumber={setPageNumber} />
 
         <Drawer
+          className="drawer"
           variant="temporary"
           onClose={handleDrawer}
           sx={{

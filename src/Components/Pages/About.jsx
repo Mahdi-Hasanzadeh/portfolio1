@@ -30,7 +30,9 @@ const About = () => {
       >
         <Grid container>
           <Grid xs={12} sm={12} md={8} lg={8} xl={8}>
+            {/* first Divider in About.jsx */}
             <Divider
+              className="divider-about-tab"
               textAlign="left"
               sx={{
                 "&::after,&::before": {
@@ -53,6 +55,8 @@ const About = () => {
                 }
               />
             </Divider>
+
+            {/* content */}
             <Box
               className="box"
               sx={{
@@ -65,6 +69,7 @@ const About = () => {
               }}
             >
               <Typography
+                className="typo-fullname typo"
                 sx={{
                   fontSize: {
                     xs: "15px",
@@ -87,6 +92,7 @@ const About = () => {
               </Typography>
 
               <Typography
+                className="typo-age typo"
                 sx={{
                   fontSize: {
                     xs: "15px",
@@ -109,6 +115,7 @@ const About = () => {
               </Typography>
 
               <Typography
+                className="typo-city typo"
                 sx={{
                   fontSize: {
                     xs: "15px",
@@ -131,6 +138,7 @@ const About = () => {
               </Typography>
 
               <Typography
+                className="typo-phone-number typo"
                 sx={{
                   fontSize: {
                     xs: "15px",
@@ -153,6 +161,7 @@ const About = () => {
               </Typography>
 
               <Typography
+                className="typo-email typo"
                 sx={{
                   fontSize: {
                     xs: "15px",
@@ -175,7 +184,7 @@ const About = () => {
               </Typography>
             </Box>
           </Grid>
-
+          {/* Avatar section */}
           <Grid
             xs={0}
             sm={0}
@@ -187,6 +196,7 @@ const About = () => {
             alignItems={"center"}
           >
             <Avatar
+              className="about-section-avatar"
               src={Mahdi}
               variant="rounded"
               sx={{
@@ -203,6 +213,9 @@ const About = () => {
             />
           </Grid>
         </Grid>
+
+        {/* skill Section */}
+
         <Grid container>
           <Grid
             width={"100vw"}
@@ -211,6 +224,7 @@ const About = () => {
             }}
           >
             <Divider
+              className="divider-about-tab"
               variant="middle"
               textAlign="center"
               sx={{
@@ -221,7 +235,9 @@ const About = () => {
             >
               <Chip label="My Skills" />
             </Divider>
+
             <Box
+              className="skill-box"
               sx={{
                 display: "flex",
                 flexDirection: "column",

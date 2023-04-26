@@ -13,7 +13,227 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 } */
+
+/* hompage CSS */
+
+@keyframes homepage {
+  from {
+    clip-path: polygon(21% 41%, 83% 46%, 83% 66%, 20% 67%);
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  /* 0% {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, 15px);
+  }
+  100% {
+    transform: translate(0, -0px);
+  } */
+}
+
+.homepage-box {
+  /* animation: homepage 0.5s linear; */
+  animation: homepage 3s ease-in-out alternate;
+}
+
+/* About Tab CSS */
+
+@keyframes box-animation {
+  from {
+    /* transform: translateY(-1000px); */
+    clip-path: polygon(47% 48%, 53% 46%, 54% 50%, 46% 51%);
+  }
+  to {
+    /* transform: translateY(0px); */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
 .box {
   background-color: rgb(232, 230, 230);
   border-radius: 10px;
+  animation: box-animation 2.5s ease-in-out alternate;
+}
+
+.about-section-avatar {
+  animation: box-animation 2.5s ease-in-out alternate;
+}
+
+@keyframes divider {
+  from {
+    opacity: 0;
+    transform: scale(-3.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.divider-about-tab {
+  animation: divider 3.5s ease alternate;
+  transition: 0.5s ease-in-out;
+}
+
+@keyframes email {
+  from {
+    transform: translate(1000px) rotate(45deg);
+  }
+  to {
+    transform: translate(0px) rotate(0deg);
+  }
+}
+
+@keyframes email {
+  from {
+    transform: translate(-1000px) rotate(-45deg) scale(2);
+  }
+  to {
+    transform: translate(0px) rotate(0deg) scale(1);
+  }
+}
+@keyframes phone-number {
+  from {
+    transform: translate(1000px) rotate(45deg) scale(2);
+  }
+  to {
+    transform: translate(0px) rotate(0deg) scale(1);
+  }
+}
+@keyframes city {
+  from {
+    transform: translate(-1000px) rotate(-45deg);
+  }
+  to {
+    transform: translate(0px) rotate(0deg);
+  }
+}
+@keyframes age {
+  from {
+    transform: translate(1000px) rotate(45deg);
+  }
+  to {
+    transform: translate(0px) rotate(0deg);
+  }
+}
+@keyframes fullname {
+  from {
+    transform: translate(-1000px) rotate(-45deg);
+  }
+  to {
+    transform: translate(0px) rotate(0deg);
+  }
+}
+
+.typo-email {
+  animation: email 4.5s ease alternate;
+}
+
+.typo-phone-number {
+  animation: phone-number 5.5s ease;
+}
+
+.typo-city {
+  animation: city 6.5s ease;
+}
+
+.typo-age {
+  animation: age 7.5s ease;
+}
+
+.typo-fullname {
+  animation: fullname 8.5s ease;
+}
+.typo {
+  transition: 0.3s ease-in-out;
+}
+
+.typo:hover {
+  translate: 10px;
+  background-color: rgb(213, 211, 211);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+@keyframes skills {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.skill-box {
+  animation: skills 5s ease-in;
+}
+
+.skill-hover {
+  transition: ease-in-out 0.5s;
+}
+
+.skill-hover:hover {
+  transform: rotate(0.5deg);
+  background-color: rgb(229, 227, 227);
+  border-radius: 15px;
+  padding: 4px;
+}
+
+/* Drawer CSS */
+
+@keyframes drawer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.MuiDrawer-paper {
+  animation: drawer 0.6s linear;
+}
+
+@keyframes drawerContent {
+  from {
+    translate: -500px;
+  }
+  to {
+    translate: 0px;
+  }
+}
+
+.MuiTab-root {
+  animation: drawerContent 0.9s ease-in-out;
+}
+
+@keyframes avatar {
+  from {
+    translate: 0px -1000px;
+  }
+  to {
+    translate: 0px 0px;
+  }
+}
+.avatar-section {
+  animation: avatar 0.9s ease-in-out;
+}
+
+/* copyright Section CSS */
+
+@keyframes copyright {
+  from {
+    translate: 0px 1000px;
+  }
+  to {
+    translate: 0px 0px;
+  }
+}
+.copyright-section {
+  animation: copyright 0.9s ease-in-out;
 }

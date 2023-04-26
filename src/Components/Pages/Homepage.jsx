@@ -27,7 +27,7 @@ const HomePage = () => {
     const typedName = new Typed(nameRef.current, {
       strings: ["Mahdi Hasanzadeh"],
       typeSpeed: 50,
-      startDelay: 600,
+      startDelay: 1000,
       showCursor: false,
     });
 
@@ -38,7 +38,7 @@ const HomePage = () => {
         "I am a professional Gamer",
       ],
       typeSpeed: 30,
-      startDelay: 1200,
+      startDelay: 1500,
       backSpeed: 25,
       showCursor: false,
       loop: true,
@@ -52,6 +52,7 @@ const HomePage = () => {
 
   return (
     <Box
+      className="homepage-box"
       sx={{
         backgroundImage: `url(${View})`,
         height: "100vh",

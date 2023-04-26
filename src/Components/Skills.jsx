@@ -2,6 +2,7 @@ import { Box, Divider, Chip, LinearProgress, Typography } from "@mui/material";
 const Skills = ({ skillName, percentage }) => {
   return (
     <Box
+      className="skill-hover"
       width={"100%"}
       sx={{
         display: "flex",

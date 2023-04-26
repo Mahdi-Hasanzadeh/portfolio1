@@ -19,7 +19,10 @@ const SidebarContent = ({ pageNumber, setPageNumber, handleDrawer }) => {
   return (
     <>
       <Box>
+        {/* Avatar section */}
+
         <Box
+          className="avatar-section"
           sx={{
             mt: { sm: 4, xs: 4, md: 2, lg: 2, xl: 2 },
             color: "whitesmoke",
@@ -46,6 +49,7 @@ const SidebarContent = ({ pageNumber, setPageNumber, handleDrawer }) => {
             Full Stack Developer
           </Typography>
         </Box>
+
         <Divider
           variant="middle"
           sx={{
@@ -57,6 +61,7 @@ const SidebarContent = ({ pageNumber, setPageNumber, handleDrawer }) => {
             },
           }}
         />
+        {/* Tabs and Tabs content */}
         <Tabs
           value={pageNumber}
           onChange={setPageNumber}
@@ -70,6 +75,11 @@ const SidebarContent = ({ pageNumber, setPageNumber, handleDrawer }) => {
               padding: "7px",
               backgroundColor: "lightgray",
               borderRadius: "10px",
+              transition: "0.3s ease-in-out",
+            },
+            "& .MuiTab-root:hover": {
+              backgroundColor: "rgb(229, 227, 227)",
+              translate: 5,
             },
           }}
         >
@@ -118,7 +128,10 @@ const SidebarContent = ({ pageNumber, setPageNumber, handleDrawer }) => {
         }}
       />
 
+      {/* Copyright Section */}
+
       <Box
+        className="copyright-section"
         sx={{
           display: "flex",
           flexDirection: "column",
