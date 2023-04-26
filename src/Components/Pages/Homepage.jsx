@@ -71,16 +71,30 @@ const HomePage = () => {
         options={moustAttraction}
       />
       <Typography
+        textAlign={"center"}
         sx={{
-          fontSize: "28px",
+          fontSize: {
+            xs: "24px",
+            sm: "26px",
+            md: "28px",
+            lg: "28px",
+            xl: "28px",
+          },
           color: "orange",
         }}
         ref={nameRef}
       ></Typography>
       <Typography
         ref={infoRef}
+        textAlign={"center"}
         sx={{
-          fontSize: "28px",
+          fontSize: {
+            xs: "20px",
+            sm: "20px",
+            md: "28px",
+            lg: "28px",
+            xl: "28px",
+          },
           color: "orange",
         }}
       ></Typography>
