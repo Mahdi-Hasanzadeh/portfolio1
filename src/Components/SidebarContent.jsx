@@ -1,6 +1,7 @@
 import { Avatar, Box, Divider, Tab, Tabs, Typography } from "@mui/material";
-
+import { RandomReveal } from "react-random-reveal";
 import avatar from "../assets/MahdiHasanzadeh.jpg";
+import { useState } from "react";
 import {
   Article,
   Assessment,
@@ -9,13 +10,35 @@ import {
   HomeRounded,
 } from "@mui/icons-material";
 
+const tabData = [
+  {
+    label: "homepage",
+    icon: HomeRounded,
+  },
+  {
+    label: "About",
+    icon: Assessment,
+  },
+  {
+    label: "Contact",
+    icon: Face,
+  },
+  {
+    label: "Template",
+    icon: Article,
+  },
+];
+
 const SidebarContent = ({ pageNumber, setPageNumber, handleDrawer }) => {
+  const [start, setStart] = useState(false);
+
   const tabProps = (index) => {
     return {
       id: `tab-index-${index}`,
       "aria-controls": `tabpanel-${index}`,
     };
   };
+
   return (
     <>
       <Box>
@@ -42,12 +65,47 @@ const SidebarContent = ({ pageNumber, setPageNumber, handleDrawer }) => {
               borderRadius: 50,
             }}
           />
-          <Typography textAlign={"center"} fontSize={"18px"}>
-            Mahdi Hasanzadeh
+          <Typography
+            textAlign={"center"}
+            sx={{
+              fontSize: {
+                xs: "20px",
+                sm: "22px",
+                md: "24px",
+                lg: "26px",
+                xl: "28px",
+              },
+            }}
+          >
+            <RandomReveal
+              isPlaying={true}
+              duration={3}
+              characters="Mahdi Hasanzadeh"
+              onComplete={() => {
+                setStart(true);
+              }}
+            />
           </Typography>
-          <Typography textAlign={"center"} fontSize={"17px"}>
-            Full Stack Developer
-          </Typography>
+          {start && (
+            <Typography
+              textAlign={"center"}
+              sx={{
+                fontSize: {
+                  xs: "20px",
+                  sm: "22px",
+                  md: "24px",
+                  lg: "26px",
+                  xl: "28px",
+                },
+              }}
+            >
+              <RandomReveal
+                isPlaying
+                duration={5}
+                characters="Full stack Developer"
+              />
+            </Typography>
+          )}
         </Box>
 
         <Divider
@@ -61,6 +119,7 @@ const SidebarContent = ({ pageNumber, setPageNumber, handleDrawer }) => {
             },
           }}
         />
+
         {/* Tabs and Tabs content */}
         <Tabs
           value={pageNumber}
@@ -83,37 +142,18 @@ const SidebarContent = ({ pageNumber, setPageNumber, handleDrawer }) => {
             },
           }}
         >
-          <Tab
-            {...tabProps(0)}
-            label="Homepage"
-            icon={<HomeRounded />}
-            iconPosition="start"
-            onClick={handleDrawer}
-          />
-
-          <Tab
-            {...tabProps(1)}
-            label="About"
-            icon={<Assessment />}
-            iconPosition="start"
-            onClick={handleDrawer}
-          />
-
-          <Tab
-            {...tabProps(2)}
-            label="Contact"
-            icon={<Article />}
-            iconPosition="start"
-            onClick={handleDrawer}
-          />
-
-          <Tab
-            {...tabProps(3)}
-            label="Template"
-            icon={<Face />}
-            iconPosition="start"
-            onClick={handleDrawer}
-          />
+          {tabData.map((item, index) => {
+            return (
+              <Tab
+                key={index}
+                {...tabProps(index)}
+                label={item.label}
+                iconPosition="start"
+                icon={<item.icon />}
+                onClick={handleDrawer}
+              />
+            );
+          })}
         </Tabs>
       </Box>
 

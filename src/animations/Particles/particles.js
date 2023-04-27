@@ -102,9 +102,9 @@ export const moustAttraction = {
     },
   },
   particles: {
-    color: { value: "#ffffff" },
+    color: { value: "#ffa500" },
     line_linked: {
-      color: "#ffffff",
+      color: "#ffa500",
       distance: 150,
       enable: true,
       opacity: 0.4,

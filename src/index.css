@@ -13,6 +13,19 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 } */
+
+@font-face {
+  font-family: Niconne;
+  src: url(../fonts/Niconne-Regular.ttf);
+}
+@font-face {
+  font-family: InstrumentSerif-italic;
+  src: url(../fonts/InstrumentSerif-Italic.ttf);
+}
+@font-face {
+  font-family: InstrumentSerif-Regular;
+  src: url(../fonts/InstrumentSerif-Regular.ttf);
+}
 * {
   margin: 0;
   padding: 0;

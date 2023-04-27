@@ -57,10 +57,8 @@ const About = () => {
                 display: "flex",
                 alignItems: "flex-start",
                 flexDirection: "column",
-                // padding: { xs: 0, sm: 0, md: 2, lg: 2, xl: 2 },
                 py: 1.2,
-
-                gap: 2,
+                gap: 0.5,
                 mt: { xs: 3, sm: 2, md: 0, lg: 0, xl: 0 },
               }}
             >
@@ -68,11 +66,11 @@ const About = () => {
                 className="typo-fullname typo"
                 sx={{
                   fontSize: {
-                    xs: "15px",
-                    sm: "16px",
-                    md: "18px",
-                    lg: "18px",
-                    xl: "18px",
+                    xs: "19px",
+                    sm: "20px",
+                    md: "22px",
+                    lg: "22px",
+                    xl: "22px",
                   },
                   textAlign: "center",
                   ml: { xs: 0, sm: 1, md: 1, lg: 1, xl: 1 },
@@ -92,11 +90,11 @@ const About = () => {
                 className="typo-age typo"
                 sx={{
                   fontSize: {
-                    xs: "15px",
-                    sm: "16px",
-                    md: "18px",
-                    lg: "18px",
-                    xl: "18px",
+                    xs: "19px",
+                    sm: "20px",
+                    md: "22px",
+                    lg: "22px",
+                    xl: "22px",
                   },
                   ml: { xs: 0, sm: 1, md: 1, lg: 1, xl: 1 },
                   textAlign: "center",
@@ -116,11 +114,11 @@ const About = () => {
                 className="typo-city typo"
                 sx={{
                   fontSize: {
-                    xs: "15px",
-                    sm: "16px",
-                    md: "18px",
-                    lg: "18px",
-                    xl: "18px",
+                    xs: "19px",
+                    sm: "20px",
+                    md: "22px",
+                    lg: "22px",
+                    xl: "22px",
                   },
                   ml: { xs: 0, sm: 1, md: 1, lg: 1, xl: 1 },
                   textAlign: "center",
@@ -140,11 +138,11 @@ const About = () => {
                 className="typo-phone-number typo"
                 sx={{
                   fontSize: {
-                    xs: "15px",
-                    sm: "16px",
-                    md: "18px",
-                    lg: "18px",
-                    xl: "18px",
+                    xs: "19px",
+                    sm: "20px",
+                    md: "22px",
+                    lg: "22px",
+                    xl: "22px",
                   },
                   ml: { xs: 0, sm: 1, md: 1, lg: 1, xl: 1 },
                   textAlign: "center",
@@ -164,11 +162,11 @@ const About = () => {
                 className="typo-email typo"
                 sx={{
                   fontSize: {
-                    xs: "15px",
-                    sm: "16px",
-                    md: "18px",
-                    lg: "18px",
-                    xl: "18px",
+                    xs: "19px",
+                    sm: "20px",
+                    md: "22px",
+                    lg: "22px",
+                    xl: "22px",
                   },
 
                   ml: { xs: 0, sm: 1, md: 1, lg: 1, xl: 1 },

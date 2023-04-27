@@ -1,8 +1,10 @@
-import { useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Box, Typography } from "@mui/material";
 import View from "../../assets/view.jpg";
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
+
+import TextTransition, { presets } from "react-text-transition";
 
 import {
   Hexagon,
@@ -13,10 +15,17 @@ import {
 
 import Typed from "typed.js";
 
+const Texts = [
+  "Full Stack Developer",
+  "Web Designer",
+  " Professional Gamer",
+  "C# Developer",
+];
+
 const HomePage = () => {
   const nameRef = useRef(null);
-  const infoRef = useRef(null);
 
+  const [index, setIndex] = useState(0);
   const particlesInit = useCallback(async (engine) => {
     await loadFull(engine);
   }, []);
@@ -26,27 +35,26 @@ const HomePage = () => {
   useEffect(() => {
     const typedName = new Typed(nameRef.current, {
       strings: ["Mahdi Hasanzadeh"],
-      typeSpeed: 50,
+      typeSpeed: 110,
+      backSpeed: 80,
       startDelay: 1000,
       showCursor: false,
-    });
-
-    const typedInfo = new Typed(infoRef.current, {
-      strings: [
-        "I am Full Stack Developer",
-        "I am Web Designer",
-        "I am a professional Gamer",
-      ],
-      typeSpeed: 30,
-      startDelay: 1500,
-      backSpeed: 25,
-      showCursor: false,
-      loop: true,
+      loop: false,
     });
 
     return () => {
       typedName.destroy();
-      typedInfo.destroy();
+    };
+  }, [nameRef]);
+
+  useEffect(() => {
+    let val = index;
+    const intervalId = setInterval(() => {
+      setIndex((index) => index + 1);
+    }, 3000);
+    if (val === Texts.length) setIndex(0);
+    return () => {
+      clearInterval(intervalId);
     };
   });
 
@@ -76,30 +84,58 @@ const HomePage = () => {
         textAlign={"center"}
         sx={{
           fontSize: {
-            xs: "24px",
-            sm: "26px",
-            md: "28px",
-            lg: "28px",
-            xl: "28px",
+            xs: "30px",
+            sm: "31px",
+            md: "34px",
+            lg: "37px",
+            xl: "40px",
           },
           color: "orange",
         }}
         ref={nameRef}
       ></Typography>
-      <Typography
-        ref={infoRef}
-        textAlign={"center"}
+
+      <Box
         sx={{
-          fontSize: {
-            xs: "20px",
-            sm: "20px",
-            md: "28px",
-            lg: "28px",
-            xl: "28px",
-          },
-          color: "orange",
+          display: "flex",
+          gap: 0.9,
         }}
-      ></Typography>
+      >
+        <Typography
+          textAlign={"center"}
+          sx={{
+            fontSize: {
+              xs: "29px",
+              sm: "30px",
+              md: "32px",
+              lg: "35px",
+              xl: "38px",
+            },
+            color: "orange",
+          }}
+        >
+          I am a
+        </Typography>
+
+        <Typography
+          component={"div"}
+          textAlign={"center"}
+          sx={{
+            fontSize: {
+              xs: "29px",
+              sm: "30px",
+              md: "32px",
+              lg: "35px",
+              xl: "38px",
+            },
+            color: "orange",
+          }}
+        >
+          <TextTransition direction="down" springConfig={presets.wobbly}>
+            {Texts[index]}
+          </TextTransition>
+        </Typography>
+      </Box>
     </Box>
   );
 };
