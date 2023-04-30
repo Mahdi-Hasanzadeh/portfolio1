@@ -1,14 +1,36 @@
-import { Box, Divider, Chip, Avatar, Typography } from "@mui/material";
+import { Box, Divider, Chip, Avatar, Typography, Tooltip } from "@mui/material";
 import {
   CodeRounded,
+  CoffeeRounded,
+  GrassRounded,
   KeyboardDoubleArrowRightRounded,
+  SchoolRounded,
 } from "@mui/icons-material";
 import Grid from "@mui/material/Unstable_Grid2";
-
+import CountUp from "react-countup";
 import Mahdi from "../../assets/MahdiHasanzadeh.jpg";
 
 import Skills from "../Skills";
-
+const developerInfo = [
+  {
+    tooltipTitle: "Projects Done",
+    icon: <SchoolRounded />,
+    count: 1216,
+    delay: 1,
+  },
+  {
+    tooltipTitle: "Grass Growth",
+    icon: <GrassRounded />,
+    count: 1316,
+    delay: 3,
+  },
+  {
+    tooltipTitle: "Coffee Drinked per Project",
+    icon: <CoffeeRounded />,
+    count: 1123,
+    delay: 6,
+  },
+];
 const About = () => {
   return (
     <>
@@ -50,141 +72,204 @@ const About = () => {
               />
             </Divider>
 
-            {/* content */}
-            <Box
-              className="box"
-              sx={{
-                display: "flex",
-                alignItems: "flex-start",
-                flexDirection: "column",
-                py: 1.2,
-                gap: 0.5,
-                mt: { xs: 3, sm: 2, md: 0, lg: 0, xl: 0 },
-              }}
-            >
-              <Typography
-                className="typo-fullname typo"
-                sx={{
-                  fontSize: {
-                    xs: "19px",
-                    sm: "20px",
-                    md: "22px",
-                    lg: "22px",
-                    xl: "22px",
-                  },
-                  textAlign: "center",
-                  ml: { xs: 0, sm: 1, md: 1, lg: 1, xl: 1 },
-                }}
-              >
-                {" "}
-                <KeyboardDoubleArrowRightRounded
+            <Grid container columns={12} spacing={2}>
+              <Grid xs={12} sm={8} md={9} lg={8} xl={10}>
+                {/* content */}
+                <Box
+                  className="box"
                   sx={{
-                    verticalAlign: "middle",
-                    color: "primary.main",
+                    display: "flex",
+                    alignItems: "flex-start",
+                    flexDirection: "column",
+                    py: 1.2,
+                    gap: 0.5,
+                    mx: { xs: 1, sm: 1, md: 0, lg: 1, xl: 1 },
+                    mt: { xs: 3, sm: 2, md: 0, lg: 0, xl: 0 },
                   }}
-                />{" "}
-                Full Name: Mahdi Hasanzadeh
-              </Typography>
+                >
+                  <Typography
+                    className="typo-fullname typo"
+                    sx={{
+                      fontSize: {
+                        xs: "19px",
+                        sm: "20px",
+                        md: "22px",
+                        lg: "22px",
+                        xl: "22px",
+                      },
+                      textAlign: "center",
+                      ml: { xs: 0, sm: 1, md: 1, lg: 1, xl: 1 },
+                    }}
+                  >
+                    {" "}
+                    <KeyboardDoubleArrowRightRounded
+                      sx={{
+                        verticalAlign: "middle",
+                        color: "primary.main",
+                      }}
+                    />{" "}
+                    Full Name: Mahdi Hasanzadeh
+                  </Typography>
 
-              <Typography
-                className="typo-age typo"
+                  <Typography
+                    className="typo-age typo"
+                    sx={{
+                      fontSize: {
+                        xs: "19px",
+                        sm: "20px",
+                        md: "22px",
+                        lg: "22px",
+                        xl: "22px",
+                      },
+                      ml: { xs: 0, sm: 1, md: 1, lg: 1, xl: 1 },
+                      textAlign: "center",
+                    }}
+                  >
+                    {" "}
+                    <KeyboardDoubleArrowRightRounded
+                      sx={{
+                        verticalAlign: "middle",
+                        color: "primary.main",
+                      }}
+                    />{" "}
+                    Age:25
+                  </Typography>
+
+                  <Typography
+                    className="typo-city typo"
+                    sx={{
+                      fontSize: {
+                        xs: "19px",
+                        sm: "20px",
+                        md: "22px",
+                        lg: "22px",
+                        xl: "22px",
+                      },
+                      ml: { xs: 0, sm: 1, md: 1, lg: 1, xl: 1 },
+                      textAlign: "center",
+                    }}
+                  >
+                    {" "}
+                    <KeyboardDoubleArrowRightRounded
+                      sx={{
+                        verticalAlign: "middle",
+                        color: "primary.main",
+                      }}
+                    />{" "}
+                    City:Herat,Afghanistan
+                  </Typography>
+
+                  <Typography
+                    className="typo-phone-number typo"
+                    sx={{
+                      fontSize: {
+                        xs: "19px",
+                        sm: "20px",
+                        md: "22px",
+                        lg: "22px",
+                        xl: "22px",
+                      },
+                      ml: { xs: 0, sm: 1, md: 1, lg: 1, xl: 1 },
+                      textAlign: "center",
+                    }}
+                  >
+                    {" "}
+                    <KeyboardDoubleArrowRightRounded
+                      sx={{
+                        verticalAlign: "middle",
+                        color: "primary.main",
+                      }}
+                    />{" "}
+                    Phone Number: 0902-934-2619
+                  </Typography>
+
+                  <Typography
+                    className="typo-email typo"
+                    sx={{
+                      fontSize: {
+                        xs: "19px",
+                        sm: "20px",
+                        md: "22px",
+                        lg: "22px",
+                        xl: "22px",
+                      },
+
+                      ml: { xs: 0, sm: 1, md: 1, lg: 1, xl: 1 },
+                      textAlign: "center",
+                    }}
+                  >
+                    {" "}
+                    <KeyboardDoubleArrowRightRounded
+                      sx={{
+                        verticalAlign: "middle",
+                        color: "primary.main",
+                      }}
+                    />{" "}
+                    Email:mahdi786trygame@gmail.com
+                  </Typography>
+                </Box>
+              </Grid>
+
+              <Grid
                 sx={{
-                  fontSize: {
-                    xs: "19px",
-                    sm: "20px",
-                    md: "22px",
-                    lg: "22px",
-                    xl: "22px",
+                  display: {
+                    xs: "none",
+                    sm: "block",
+                    md: "block",
+                    lg: "block",
+                    xl: "block",
                   },
-                  ml: { xs: 0, sm: 1, md: 1, lg: 1, xl: 1 },
-                  textAlign: "center",
+                  alignSelf: "center",
                 }}
+                xs={0}
+                sm={4}
+                md={3}
+                lg={4}
+                xl={2}
               >
-                {" "}
-                <KeyboardDoubleArrowRightRounded
+                <Box
                   sx={{
-                    verticalAlign: "middle",
-                    color: "primary.main",
+                    mt: { xs: 3, sm: 2, md: 0, lg: 0, xl: 0 },
+                    width: 1,
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    gap: 2,
                   }}
-                />{" "}
-                Age:25
-              </Typography>
-
-              <Typography
-                className="typo-city typo"
-                sx={{
-                  fontSize: {
-                    xs: "19px",
-                    sm: "20px",
-                    md: "22px",
-                    lg: "22px",
-                    xl: "22px",
-                  },
-                  ml: { xs: 0, sm: 1, md: 1, lg: 1, xl: 1 },
-                  textAlign: "center",
-                }}
-              >
-                {" "}
-                <KeyboardDoubleArrowRightRounded
-                  sx={{
-                    verticalAlign: "middle",
-                    color: "primary.main",
-                  }}
-                />{" "}
-                City:Herat,Afghanistan
-              </Typography>
-
-              <Typography
-                className="typo-phone-number typo"
-                sx={{
-                  fontSize: {
-                    xs: "19px",
-                    sm: "20px",
-                    md: "22px",
-                    lg: "22px",
-                    xl: "22px",
-                  },
-                  ml: { xs: 0, sm: 1, md: 1, lg: 1, xl: 1 },
-                  textAlign: "center",
-                }}
-              >
-                {" "}
-                <KeyboardDoubleArrowRightRounded
-                  sx={{
-                    verticalAlign: "middle",
-                    color: "primary.main",
-                  }}
-                />{" "}
-                Phone Number: 0902-934-2619
-              </Typography>
-
-              <Typography
-                className="typo-email typo"
-                sx={{
-                  fontSize: {
-                    xs: "19px",
-                    sm: "20px",
-                    md: "22px",
-                    lg: "22px",
-                    xl: "22px",
-                  },
-
-                  ml: { xs: 0, sm: 1, md: 1, lg: 1, xl: 1 },
-                  textAlign: "center",
-                }}
-              >
-                {" "}
-                <KeyboardDoubleArrowRightRounded
-                  sx={{
-                    verticalAlign: "middle",
-                    color: "primary.main",
-                  }}
-                />{" "}
-                Email:mahdi786trygame@gmail.com
-              </Typography>
-            </Box>
+                >
+                  {developerInfo.map((item, index) => {
+                    return (
+                      <Tooltip
+                        key={index}
+                        arrow
+                        title={item.tooltipTitle}
+                        placement="right"
+                      >
+                        <Chip
+                          icon={item.icon}
+                          label={
+                            <Typography variant="body1">
+                              <CountUp
+                                enableScrollSpy
+                                delay={item.delay}
+                                duration={3}
+                                start={0}
+                                seperator=","
+                                end={item.count}
+                              />
+                            </Typography>
+                          }
+                        />
+                      </Tooltip>
+                    );
+                  })}
+                </Box>
+              </Grid>
+            </Grid>
           </Grid>
+
           {/* Avatar section */}
+
           <Grid
             xs={0}
             sm={0}

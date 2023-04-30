@@ -7,8 +7,13 @@ import {
   Assessment,
   CopyrightRounded,
   Face,
+  Facebook,
+  GitHub,
   HomeRounded,
+  Instagram,
 } from "@mui/icons-material";
+import { styled } from "@mui/material/styles";
+import { grey, red } from "@mui/material/colors";
 
 const tabData = [
   {
@@ -39,6 +44,33 @@ const SidebarContent = ({ pageNumber, setPageNumber, handleDrawer }) => {
     };
   };
 
+  const SocialMediaButton = styled(Typography)(({ theme }) => ({
+    color: theme.palette.primary.main,
+    cursor: "pointer",
+    transition: "0.5s ease-in-out",
+    "&:hover": {
+      translate: "0px 5px",
+    },
+  }));
+
+  const socialMedia = [
+    {
+      href: "https://mui.com/material-ui/customization/how-to-customize/#2-reusable-component",
+      icon: Facebook,
+      color: null,
+    },
+    {
+      href: "https://github.com/Mahdi-Hasanzadeh",
+      icon: GitHub,
+      color: grey[300],
+    },
+    {
+      href: "",
+      icon: Instagram,
+      color: red[200],
+    },
+  ];
+
   return (
     <>
       <Box>
@@ -65,6 +97,7 @@ const SidebarContent = ({ pageNumber, setPageNumber, handleDrawer }) => {
               borderRadius: 50,
             }}
           />
+
           <Typography
             textAlign={"center"}
             sx={{
@@ -86,6 +119,7 @@ const SidebarContent = ({ pageNumber, setPageNumber, handleDrawer }) => {
               }}
             />
           </Typography>
+
           {start && (
             <Typography
               textAlign={"center"}
@@ -106,6 +140,33 @@ const SidebarContent = ({ pageNumber, setPageNumber, handleDrawer }) => {
               />
             </Typography>
           )}
+          {/* Social Media */}
+
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              gap: 0.3,
+            }}
+          >
+            {socialMedia.map((item, index) => {
+              return (
+                <SocialMediaButton
+                  key={index}
+                  component="a"
+                  target="_blank"
+                  href={item.href}
+                  rel="noopener noreferrer"
+                >
+                  <item.icon
+                    sx={{
+                      color: item.color ? item.color : null,
+                    }}
+                  />
+                </SocialMediaButton>
+              );
+            })}
+          </Box>
         </Box>
 
         <Divider
@@ -121,6 +182,7 @@ const SidebarContent = ({ pageNumber, setPageNumber, handleDrawer }) => {
         />
 
         {/* Tabs and Tabs content */}
+
         <Tabs
           value={pageNumber}
           onChange={setPageNumber}
