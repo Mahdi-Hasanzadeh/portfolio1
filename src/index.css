@@ -98,7 +98,34 @@
 }
 
 .about-section-avatar {
-  animation: box-animation 2.5s ease-in-out alternate;
+  animation: box-animation 2.5s ease-in-out;
+  animation: ava 1.5s ease-in-out infinite alternate-reverse;
+  border-top-left-radius: 30% !important;
+  border-bottom-right-radius: 30% !important;
+  border-top-right-radius: 4% !important;
+  border-bottom-left-radius: 4% !important;
+  box-shadow: 10px 10px 1.5 red !important;
+  border-width: 100px;
+  transition: 0.5s ease-in-out;
+}
+.about-section-avatar:hover {
+  scale: 0.8;
+  border-top-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-top-right-radius: 30% !important;
+  border-bottom-left-radius: 30% !important;
+}
+
+@keyframes ava {
+  from {
+    translate: -0 -4px;
+  }
+  to {
+    translate: 0 4px;
+  }
+}
+.about-section-avatar:hover::before {
+  display: block;
 }
 
 @keyframes divider {
@@ -211,11 +238,11 @@
 }
 
 .skill-hover {
-  transition: ease-in-out 0.5s;
+  transition: linear 0.4s;
 }
 
 .skill-hover:hover {
-  transform: rotate(0.5deg);
+  transform: translate(4px);
   background-color: rgb(229, 227, 227);
   border-radius: 15px;
   padding: 4px;
@@ -273,4 +300,25 @@
 }
 .copyright-section {
   animation: copyright 0.9s ease-in-out;
+}
+
+/* Resume Section */
+
+.timeline-item:hover {
+  color: rgb(169, 42, 42);
+  translate: -1px 1px;
+  cursor: context-menu;
+}
+
+@keyframes resume {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.Resume-box {
+  animation: resume 0.9s linear;
 }

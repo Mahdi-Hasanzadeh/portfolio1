@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 
-import { About, Homepage } from "./Pages/index.js";
+import { About, Homepage, Resume, WorkSamples } from "./Pages/index.js";
 
 import SwipeableViews from "react-swipeable-views";
 
@@ -18,16 +18,20 @@ const Feed = ({ pageNumber, setPageNumber }) => {
   };
 
   return (
-    <>
-      <SwipeableViews index={pageNumber} onChangeIndex={setPageNumber}>
-        <TabPanel index={0} pageNumber={pageNumber}>
-          <Homepage />
-        </TabPanel>
-        <TabPanel index={1} pageNumber={pageNumber}>
-          <About />
-        </TabPanel>
-      </SwipeableViews>
-    </>
+    <SwipeableViews index={pageNumber} onChangeIndex={setPageNumber}>
+      <TabPanel index={0} pageNumber={pageNumber}>
+        <Homepage />
+      </TabPanel>
+      <TabPanel index={1} pageNumber={pageNumber}>
+        <About />
+      </TabPanel>
+      <TabPanel index={2} pageNumber={pageNumber}>
+        <Resume />
+      </TabPanel>
+      <TabPanel index={3} pageNumber={pageNumber}>
+        <WorkSamples />
+      </TabPanel>
+    </SwipeableViews>
   );
 };
 

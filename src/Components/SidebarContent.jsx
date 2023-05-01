@@ -25,11 +25,11 @@ const tabData = [
     icon: Assessment,
   },
   {
-    label: "Contact",
+    label: "Resume",
     icon: Face,
   },
   {
-    label: "Template",
+    label: "Work Samples",
     icon: Article,
   },
 ];

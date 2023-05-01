@@ -6,7 +6,7 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 
 import { SidebarContainer, Feed } from "./Components/index.js";
 
-const title = ["Homepage", "About"];
+const title = ["Homepage", "About", "Resume", "Work Samples"];
 
 function App() {
   const Theme = createTheme({

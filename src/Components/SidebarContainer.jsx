@@ -1,12 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SidebarContent } from "./index.js";
-import { Box, Drawer, Fab, Button } from "@mui/material";
-
+import { Box, Drawer, Fab, Button, useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material";
 import { Menu, KeyboardArrowLeftRounded } from "@mui/icons-material";
 import { grey } from "@mui/material/colors";
 
 const SidebarContainer = ({ pageNumber, setPageNumber }) => {
   const [drawerOpened, setDrawerOpened] = useState(false);
+
+  const theme = useTheme();
+  const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
+
+  useEffect(() => {
+    if (isMdUp) setDrawerOpened(false);
+  }, [isMdUp]);
 
   const handleDrawer = () => {
     setDrawerOpened((prevData) => !prevData);

@@ -42,6 +42,7 @@ const About = () => {
           overflowY: "scroll",
           overflowX: "hidden",
           borderRadius: "10px",
+          py: { xs: 6, sm: 5, md: 1, lg: 1, xl: 1 },
         }}
       >
         <Grid container>
@@ -250,7 +251,7 @@ const About = () => {
                           label={
                             <Typography variant="body1">
                               <CountUp
-                                enableScrollSpy
+                                // enableScrollSpy={true}
                                 delay={item.delay}
                                 duration={3}
                                 start={0}
@@ -292,8 +293,8 @@ const About = () => {
                   lg: "block",
                   xl: "block",
                 },
-                height: "200px",
-                width: "200px",
+                height: "220px",
+                width: "220px",
               }}
             />
           </Grid>
@@ -334,7 +335,9 @@ const About = () => {
             >
               <Skills skillName={"HTML"} percentage={50} />
               <Skills skillName={"CSS"} percentage={30} />
-              <Skills skillName={"JAVASCRIPT"} percentage={20} />
+              <Skills skillName={"JAVASCRIPT"} percentage={35} />
+              <Skills skillName={"REACT"} percentage={30} />
+              <Skills skillName={"MATERIAL UI"} percentage={20} />
               <Skills skillName={"NodeJS"} percentage={5} />
             </Box>
           </Grid>
