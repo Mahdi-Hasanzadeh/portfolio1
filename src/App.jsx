@@ -3,12 +3,12 @@ import { createTheme } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 import { useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-
+import { ToastContainer } from "react-toastify";
 import { SidebarContainer, Feed } from "./Components/index.js";
 
-const title = ["Homepage", "About", "Resume", "Work Samples"];
+const title = ["Homepage", "About", "Resume", "Work Samples", "Comments"];
 
-function App() {
+function App({ comments }) {
   const Theme = createTheme({
     typography: {
       fontFamily: "InstrumentSerif-Regular,Niconne",
@@ -27,6 +27,7 @@ function App() {
         <title>Hasanzadeh Portflio | {title[pageNumber] || "not found"}</title>
       </Helmet>
       <ThemeProvider theme={Theme}>
+        <ToastContainer />
         <Grid container>
           <Grid
             // sx={{
@@ -55,7 +56,11 @@ function App() {
             lg={10}
             xl={10}
           >
-            <Feed pageNumber={pageNumber} setPageNumber={handlePageNumber} />
+            <Feed
+              comments={comments}
+              pageNumber={pageNumber}
+              setPageNumber={handlePageNumber}
+            />
           </Grid>
         </Grid>
       </ThemeProvider>

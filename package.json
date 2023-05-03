@@ -25,8 +25,11 @@
     "react-particles": "^2.9.3",
     "react-random-reveal": "^2.0.0",
     "react-router": "^6.10.0",
+    "react-slick": "^0.29.0",
     "react-swipeable-views": "^0.14.0",
     "react-text-transition": "^3.1.0",
+    "react-toastify": "^9.1.2",
+    "slick-carousel": "^1.8.1",
     "tsparticles": "^2.9.3",
     "typed.js": "^2.0.15"
   },

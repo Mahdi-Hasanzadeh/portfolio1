@@ -5,6 +5,7 @@ import { useState } from "react";
 import {
   Article,
   Assessment,
+  Comment,
   CopyrightRounded,
   Face,
   Facebook,
@@ -32,6 +33,7 @@ const tabData = [
     label: "Work Samples",
     icon: Article,
   },
+  { label: "Comments", icon: Comment },
 ];
 
 const SidebarContent = ({ pageNumber, setPageNumber, handleDrawer }) => {
@@ -191,7 +193,7 @@ const SidebarContent = ({ pageNumber, setPageNumber, handleDrawer }) => {
           scrollButtons="auto"
           sx={{
             "& .MuiTab-root": {
-              minHeight: "45px",
+              minHeight: "35px",
               m: "5px",
               padding: "7px",
               backgroundColor: "lightgray",

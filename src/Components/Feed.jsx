@@ -1,10 +1,16 @@
 import { Box } from "@mui/material";
 
-import { About, Homepage, Resume, WorkSamples } from "./Pages/index.js";
+import {
+  About,
+  Comments,
+  Homepage,
+  Resume,
+  WorkSamples,
+} from "./Pages/index.js";
 
 import SwipeableViews from "react-swipeable-views";
 
-const Feed = ({ pageNumber, setPageNumber }) => {
+const Feed = ({ pageNumber, setPageNumber, comments }) => {
   const TabPanel = ({ children, index, pageNumber }) => {
     return (
       <div
@@ -30,6 +36,9 @@ const Feed = ({ pageNumber, setPageNumber }) => {
       </TabPanel>
       <TabPanel index={3} pageNumber={pageNumber}>
         <WorkSamples />
+      </TabPanel>
+      <TabPanel index={4} pageNumber={pageNumber}>
+        <Comments comments={comments} />
       </TabPanel>
     </SwipeableViews>
   );
