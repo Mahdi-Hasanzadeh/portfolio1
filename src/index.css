@@ -328,3 +328,6 @@
   font-style: italic;
   font-weight: bolder !important;
 }
+.Mui-error {
+  color: rgb(255, 89, 0) !important;
+}

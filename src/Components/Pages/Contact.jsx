@@ -11,7 +11,7 @@ import background from "../../assets/universe.jpg";
 import { ContactsRounded } from "@mui/icons-material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { useState, useEffect } from "react";
-import { orange } from "@mui/material/colors";
+import { toast } from "react-toastify";
 
 const Contact = () => {
   const [checked, setChecked] = useState(false);
@@ -88,7 +88,7 @@ const Contact = () => {
 
     let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (formData.focused.email && !mailformat.test(email)) {
-      errors.email = "Invalid Email. valid Email: name@gmail.com ";
+      errors.email = "Invalid Email ";
     }
 
     // const urlPattern =
@@ -106,13 +106,45 @@ const Contact = () => {
     formData.comment
   );
 
+  const handleSubmit = () => {
+    setFormData((prevData) => {
+      return {
+        ...prevData,
+        focused: {
+          fullName: true,
+          email: true,
+          comment: true,
+        },
+      };
+    });
+    if (!validate.fullName && !validate.email && !validate.comment) {
+      toast.info(`Thanks for your email Mr.${formData.fullName}`, {
+        position: "top-right",
+      });
+      setFormData({
+        fullName: "",
+        email: "",
+        comment: "",
+        focused: {
+          fullName: false,
+          email: false,
+          comment: false,
+        },
+      });
+    } else {
+      toast.error("Please Fill out the Form", {
+        autoClose: 1500,
+      });
+    }
+  };
+
   return (
     <Box
       sx={{
         height: "100vh",
         overflowY: "scroll",
         backgroundImage: `url(${background})`,
-        backgroundPosition: "center",
+        backgroundPosition: "left",
         py: 1,
       }}
     >
@@ -153,6 +185,7 @@ const Contact = () => {
       </Box>
       <Box
         component="form"
+        autoComplete="false"
         sx={{
           display: "flex",
           justifyContent: "center",
@@ -174,7 +207,18 @@ const Contact = () => {
               name="fullName"
               value={formData.fullName}
               error={validate.fullName ? true : false}
-              helperText={validate.fullName ? validate.fullName : null}
+              helperText={
+                validate.fullName ? (
+                  <Typography
+                    textAlign={"center"}
+                    sx={{
+                      fontSize: { xs: "14px", sm: "20px" },
+                    }}
+                  >
+                    {validate.fullName}
+                  </Typography>
+                ) : null
+              }
               color="black"
               fullWidth
               required
@@ -204,7 +248,18 @@ const Contact = () => {
               name="email"
               value={formData.email}
               error={validate.email ? true : false}
-              helperText={validate.email ? validate.email : null}
+              helperText={
+                validate.email ? (
+                  <Typography
+                    textAlign={"center"}
+                    sx={{
+                      fontSize: { xs: "14px", sm: "20px" },
+                    }}
+                  >
+                    {validate.email}
+                  </Typography>
+                ) : null
+              }
               fullWidth
               placeholder="Email"
               color="black"
@@ -238,16 +293,29 @@ const Contact = () => {
               onBlur={handleBlur}
               value={formData.comment}
               error={validate.comment ? true : false}
-              helperText={validate.comment ? validate.comment : null}
+              helperText={
+                validate.comment ? (
+                  <Typography
+                    textAlign={"center"}
+                    sx={{
+                      fontSize: { xs: "14px", sm: "20px" },
+                    }}
+                  >
+                    {validate.comment}
+                  </Typography>
+                ) : null
+              }
               name="comment"
-              multiline
+              multiline={true}
               rows={4}
               fullWidth
               color="black"
               required
               className="textarea"
               variant="filled"
-              inputProps={{ style: { color: "white" } }}
+              inputProps={{
+                style: { color: "white", textIndent: "10px", marginTop: "2px" },
+              }}
               placeholder="Write Your Eamil Here..."
               label={
                 <Typography display={"inline-block"} fontSize={28}>
@@ -277,7 +345,9 @@ const Contact = () => {
         }}
       >
         <Button
-          href="mailto:mahdi786trygame@gmail.com"
+          onClick={handleSubmit}
+          //   href="mailto:mahdi786trygame@gmail.com"
+          type="submit"
           sx={{
             width: 1 / 2,
           }}

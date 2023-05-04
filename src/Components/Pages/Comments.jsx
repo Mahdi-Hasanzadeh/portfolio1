@@ -1,4 +1,4 @@
-import { CommentRounded } from "@mui/icons-material";
+import { ArrowDownwardRounded, CommentRounded } from "@mui/icons-material";
 import {
   Avatar,
   Box,
@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { grey } from "@mui/material/colors";
 
-import backgroundImg from "../../assets/anime.jpg";
+import backgroundImg from "../../assets/universe.jpg";
 
 import Grid from "@mui/material/Unstable_Grid2";
 import Slider from "react-slick";
@@ -135,19 +135,19 @@ const Comments = ({ comments }) => {
       <Box
         sx={{
           height: "100vh",
-          py: 1,
+
           mx: 1,
           backgroundColor: grey[200],
           // borderTopRightRadius: "20%",
           overflowX: "hidden",
           overflowY: "scroll",
           backgroundImage: `url(${backgroundImg})`,
-          backgroundPosition: "center",
+          backgroundPosition: "left",
         }}
       >
-        <Box width="100%" mb={2}>
+        <Box width="100%" mb={1}>
           <Divider
-            textAlign="center"
+            textAlign="left"
             variant="middle"
             sx={{
               "&::after,&::before": {
@@ -173,7 +173,7 @@ const Comments = ({ comments }) => {
         >
           <Slider
             arrows={false}
-            dots={true}
+            // dots={true}
             infinite={true}
             slidesToShow={1}
             autoplay={true}
@@ -199,8 +199,12 @@ const Comments = ({ comments }) => {
                       }}
                       alt={item.name}
                     />
-                    <Typography variant="body1">{item.name}</Typography>
-                    <Typography variant="body2">{item.date}</Typography>
+                    <Typography variant="body1" color={"white"}>
+                      {item.name}
+                    </Typography>
+                    <Typography variant="body2" color={"white"}>
+                      {item.date}
+                    </Typography>
                     <Card
                       elevation={24}
                       sx={{
@@ -223,14 +227,34 @@ const Comments = ({ comments }) => {
         </Box>
         <Box
           sx={{
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Typography variant="h5" color="white">
+            Send Us Your Comment
+          </Typography>
+          {
+            <ArrowDownwardRounded
+              color="black"
+              sx={{
+                height: "50px",
+              }}
+            />
+          }
+        </Box>
+        <Box
+          sx={{
             color: "white",
+            px: 1,
           }}
           component="form"
           onSubmit={handleSubmit}
         >
           <Grid
             container
-            mt={4}
             mx={1}
             sx={{
               columns: { sx: 12, sm: 12, md: 6, lg: 6, xl: 6 },
@@ -245,7 +269,7 @@ const Comments = ({ comments }) => {
                 xl: "none",
               },
             }}
-            spacing={1}
+            spacing={0}
           >
             <Grid xs={12} sm={8} md={6} lg={6} xl={6}>
               <TextField
@@ -263,10 +287,24 @@ const Comments = ({ comments }) => {
                 helperText={validate.fullName ? validate.fullName : null}
                 onBlur={handleBlur}
                 onChange={handleChange}
+                color="black"
+                sx={{
+                  label: {
+                    color: "white",
+                  },
+                }}
+                inputProps={{
+                  style: {
+                    color: "white",
+                    textIndent: "10px",
+                    marginTop: "2px",
+                  },
+                }}
               />
             </Grid>
             <Grid xs={12} sm={8} md={6} lg={6} xl={6}>
               <TextField
+                color="black"
                 fullWidth
                 id="email"
                 name="email"
@@ -281,6 +319,18 @@ const Comments = ({ comments }) => {
                 helperText={validate.email ? validate.email : null}
                 onBlur={handleBlur}
                 onChange={handleChange}
+                sx={{
+                  label: {
+                    color: "white",
+                  },
+                }}
+                inputProps={{
+                  style: {
+                    color: "white",
+                    textIndent: "10px",
+                    marginTop: "2px",
+                  },
+                }}
               />
             </Grid>
             <Grid xs={12} sm={8} md={6} lg={6} xl={6}>
@@ -292,7 +342,6 @@ const Comments = ({ comments }) => {
                     sx={{
                       display: "inline-block",
                       color: "black",
-                      fontWeight: "bolder",
                     }}
                   >
                     You Comment Here...
@@ -311,7 +360,19 @@ const Comments = ({ comments }) => {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 error={validate.comment ? true : false}
-                color="info"
+                color="black"
+                sx={{
+                  label: {
+                    color: "white",
+                  },
+                }}
+                inputProps={{
+                  style: {
+                    color: "white",
+                    textIndent: "10px",
+                    marginTop: "2px",
+                  },
+                }}
               />
             </Grid>
             <Button
