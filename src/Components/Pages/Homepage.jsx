@@ -6,12 +6,7 @@ import { loadFull } from "tsparticles";
 
 import TextTransition, { presets } from "react-text-transition";
 
-import {
-  Hexagon,
-  GoldenState,
-  moustAttraction,
-  mouseHover,
-} from "../../animations/Particles/particles.js";
+import { moustAttraction } from "../../animations/Particles/particles.js";
 
 import Typed from "typed.js";
 
