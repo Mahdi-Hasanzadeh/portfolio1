@@ -19,16 +19,7 @@ const Resume = () => {
   });
 
   return (
-    <Box
-      className="Resume-box"
-      height={"100%"}
-      padding={4}
-      bgcolor={grey[200]}
-      sx={{
-        borderTopLeftRadius: "40%",
-        borderBottomRightRadius: "40%",
-      }}
-    >
+    <Box className="Resume-box" height={"100%"} padding={4}>
       <Grid container mb={3}>
         <Grid xs={12} sm={12} md={12} lg={12} xl={12}>
           <Slide

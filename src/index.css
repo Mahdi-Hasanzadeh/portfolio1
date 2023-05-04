@@ -322,3 +322,9 @@
 .Resume-box {
   animation: resume 0.9s linear;
 }
+
+.typoColor {
+  color: rgb(0, 0, 0);
+  font-style: italic;
+  font-weight: bolder !important;
+}

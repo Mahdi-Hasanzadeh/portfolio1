@@ -6,6 +6,7 @@ import {
   Article,
   Assessment,
   Comment,
+  ContactsRounded,
   CopyrightRounded,
   Face,
   Facebook,
@@ -34,6 +35,7 @@ const tabData = [
     icon: Article,
   },
   { label: "Comments", icon: Comment },
+  { label: "Contact", icon: ContactsRounded },
 ];
 
 const SidebarContent = ({ pageNumber, setPageNumber, handleDrawer }) => {
@@ -193,9 +195,10 @@ const SidebarContent = ({ pageNumber, setPageNumber, handleDrawer }) => {
           scrollButtons="auto"
           sx={{
             "& .MuiTab-root": {
-              minHeight: "35px",
+              minHeight: "40px",
+              // height: "20px",
               m: "5px",
-              padding: "7px",
+              padding: "6px",
               backgroundColor: "lightgray",
               borderRadius: "10px",
               transition: "0.3s ease-in-out",

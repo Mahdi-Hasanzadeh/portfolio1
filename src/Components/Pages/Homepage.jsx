@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { Box, Typography } from "@mui/material";
-import View from "../../assets/view.jpg";
+import View from "../../assets/anime.jpg";
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
 
@@ -66,7 +66,8 @@ const HomePage = () => {
         height: "100vh",
         overflowY: "scroll",
         backgroundRepeat: "repeat-y",
-        backgroundPosition: "bottom",
+        backgroundPosition: "center",
+
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -80,6 +81,7 @@ const HomePage = () => {
         loaded={particlesLoaded}
         options={moustAttraction}
       />
+
       <Typography
         textAlign={"center"}
         sx={{
@@ -90,11 +92,10 @@ const HomePage = () => {
             lg: "37px",
             xl: "40px",
           },
-          color: "orange",
         }}
+        className="typoColor"
         ref={nameRef}
-      ></Typography>
-
+      />
       <Box
         sx={{
           display: "flex",
@@ -111,8 +112,8 @@ const HomePage = () => {
               lg: "35px",
               xl: "38px",
             },
-            color: "orange",
           }}
+          className="typoColor"
         >
           I am a
         </Typography>
@@ -128,8 +129,8 @@ const HomePage = () => {
               lg: "35px",
               xl: "38px",
             },
-            color: "orange",
           }}
+          className="typoColor"
         >
           <TextTransition direction="down" springConfig={presets.wobbly}>
             {Texts[index]}

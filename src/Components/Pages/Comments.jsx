@@ -12,6 +12,8 @@ import {
 } from "@mui/material";
 import { grey } from "@mui/material/colors";
 
+import backgroundImg from "../../assets/anime.jpg";
+
 import Grid from "@mui/material/Unstable_Grid2";
 import Slider from "react-slick";
 
@@ -136,9 +138,11 @@ const Comments = ({ comments }) => {
           py: 1,
           mx: 1,
           backgroundColor: grey[200],
-          borderTopRightRadius: "20%",
+          // borderTopRightRadius: "20%",
           overflowX: "hidden",
           overflowY: "scroll",
+          backgroundImage: `url(${backgroundImg})`,
+          backgroundPosition: "center",
         }}
       >
         <Box width="100%" mb={2}>
@@ -147,7 +151,7 @@ const Comments = ({ comments }) => {
             variant="middle"
             sx={{
               "&::after,&::before": {
-                borderColor: "orange",
+                borderColor: "black",
               },
             }}
           >
@@ -160,10 +164,10 @@ const Comments = ({ comments }) => {
         </Box>
         {/* Slider Section */}
         <Box
-          width={"90%"}
+          width={"80%"}
           sx={{
             margin: "0 auto",
-            backgroundColor: grey[400],
+            // backgroundColor: grey[400],
             borderRadius: 5,
           }}
         >
@@ -198,10 +202,11 @@ const Comments = ({ comments }) => {
                     <Typography variant="body1">{item.name}</Typography>
                     <Typography variant="body2">{item.date}</Typography>
                     <Card
+                      elevation={24}
                       sx={{
                         width: 1 / 2,
                         borderRadius: 5,
-                        backgroundColor: "orange",
+                        //backgroundColor: "orange",
                       }}
                     >
                       <CardContent>
@@ -216,8 +221,13 @@ const Comments = ({ comments }) => {
             })}
           </Slider>
         </Box>
-
-        <Box component="form" onSubmit={handleSubmit}>
+        <Box
+          sx={{
+            color: "white",
+          }}
+          component="form"
+          onSubmit={handleSubmit}
+        >
           <Grid
             container
             mt={4}
@@ -243,8 +253,9 @@ const Comments = ({ comments }) => {
                 name="fullName"
                 type="text"
                 required
+                placeholder="Start Typing"
                 size="small"
-                variant="outlined"
+                variant="filled"
                 label="Full Name"
                 value={formData.fullName}
                 fullWidth
@@ -262,7 +273,8 @@ const Comments = ({ comments }) => {
                 type="email"
                 required
                 size="small"
-                variant="outlined"
+                placeholder="Start Typing"
+                variant="filled"
                 label="Email"
                 value={formData.email}
                 error={validate.email ? true : false}
@@ -275,19 +287,31 @@ const Comments = ({ comments }) => {
               <TextField
                 fullWidth
                 rows={2}
-                label="Your Comment Here...."
+                label={
+                  <Typography
+                    sx={{
+                      display: "inline-block",
+                      color: "black",
+                      fontWeight: "bolder",
+                    }}
+                  >
+                    You Comment Here...
+                  </Typography>
+                }
                 value={formData.comment}
                 id={"comment"}
                 name="comment"
                 type="text"
                 required
                 size="small"
-                variant="outlined"
+                placeholder="Start Typing"
+                variant="filled"
                 multiline
                 helperText={validate.comment ? validate.comment : null}
                 onBlur={handleBlur}
                 onChange={handleChange}
                 error={validate.comment ? true : false}
+                color="info"
               />
             </Grid>
             <Button
@@ -301,7 +325,7 @@ const Comments = ({ comments }) => {
               Submit
             </Button>
           </Grid>
-        </Box>
+        </Box>{" "}
       </Box>
     </>
   );

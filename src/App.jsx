@@ -6,10 +6,22 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import { ToastContainer } from "react-toastify";
 import { SidebarContainer, Feed } from "./Components/index.js";
 
-const title = ["Homepage", "About", "Resume", "Work Samples", "Comments"];
+const title = [
+  "Homepage",
+  "About",
+  "Resume",
+  "Work Samples",
+  "Comments",
+  "Contact",
+];
 
 function App({ comments }) {
   const Theme = createTheme({
+    palette: {
+      black: {
+        main: "#ffffff",
+      },
+    },
     typography: {
       fontFamily: "InstrumentSerif-Regular,Niconne",
       fontSize: 18,

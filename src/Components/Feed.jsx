@@ -6,6 +6,7 @@ import {
   Homepage,
   Resume,
   WorkSamples,
+  Contact,
 } from "./Pages/index.js";
 
 import SwipeableViews from "react-swipeable-views";
@@ -39,6 +40,9 @@ const Feed = ({ pageNumber, setPageNumber, comments }) => {
       </TabPanel>
       <TabPanel index={4} pageNumber={pageNumber}>
         <Comments comments={comments} />
+      </TabPanel>
+      <TabPanel index={5} pageNumber={pageNumber}>
+        <Contact />
       </TabPanel>
     </SwipeableViews>
   );
