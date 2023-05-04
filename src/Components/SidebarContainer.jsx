@@ -3,9 +3,9 @@ import { SidebarContent } from "./index.js";
 import { Box, Drawer, Fab, Button, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material";
 import { Menu, KeyboardArrowLeftRounded } from "@mui/icons-material";
-import { grey } from "@mui/material/colors";
+import { grey, orange, lightBlue } from "@mui/material/colors";
 
-const SidebarContainer = ({ pageNumber, setPageNumber }) => {
+const SidebarContainer = ({ pageNumber, setPageNumber, darkMode }) => {
   const [drawerOpened, setDrawerOpened] = useState(false);
 
   const theme = useTheme();
@@ -42,14 +42,18 @@ const SidebarContainer = ({ pageNumber, setPageNumber }) => {
       <Box
         className="scroll"
         sx={{
-          backgroundColor: grey[900],
+          backgroundColor: darkMode ? grey[900] : grey[50],
           height: "100vh",
           overflowY: "scroll",
           overflowX: "hidden",
           borderRadius: "8px",
         }}
       >
-        <SidebarContent pageNumber={pageNumber} setPageNumber={setPageNumber} />
+        <SidebarContent
+          darkMode={darkMode}
+          pageNumber={pageNumber}
+          setPageNumber={setPageNumber}
+        />
 
         <Drawer
           className="drawer scroll"
@@ -65,7 +69,7 @@ const SidebarContainer = ({ pageNumber, setPageNumber }) => {
             },
 
             "& .MuiDrawer-paper": {
-              backgroundColor: grey[800],
+              backgroundColor: darkMode ? "#000000" : grey[50],
             },
           }}
           open={drawerOpened}
@@ -85,6 +89,7 @@ const SidebarContainer = ({ pageNumber, setPageNumber }) => {
             <KeyboardArrowLeftRounded />
           </Button>
           <SidebarContent
+            darkMode={darkMode}
             pageNumber={pageNumber}
             setPageNumber={setPageNumber}
             handleDrawer={handleDrawer}

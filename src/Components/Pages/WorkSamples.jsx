@@ -44,7 +44,7 @@ const WorkSamplesInfo = [
   },
 ];
 
-const WorkSamples = () => {
+const WorkSamples = ({ darkMode }) => {
   const [checked, setChecked] = useState(false);
   const theme = useTheme();
 
@@ -58,11 +58,13 @@ const WorkSamples = () => {
   return (
     <>
       <Box
+        className="scroll"
         sx={{
           py: 2,
-          height: { xs: "100%", sm: "100vh", md: "100vh" },
-          backgroundColor: grey[200],
-          borderTopRightRadius: "30%",
+          height: "100vh",
+          backgroundColor: darkMode ? "rgb(35, 30, 30)" : grey[200],
+          overflowY: "scroll",
+          // borderTopRightRadius: "30%",
         }}
       >
         <Box
@@ -93,9 +95,10 @@ const WorkSamples = () => {
           container
           sx={{
             mx: 2,
-            mt: 1,
+            mt: 5,
           }}
           justifyContent={"space-around"}
+          alignItems={"center"}
         >
           {WorkSamplesInfo.map((item, index) => {
             return (

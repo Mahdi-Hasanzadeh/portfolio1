@@ -20,7 +20,7 @@ import Slider from "react-slick";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-const Comments = ({ comments }) => {
+const Comments = ({ comments, darkMode }) => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -133,16 +133,15 @@ const Comments = ({ comments }) => {
   return (
     <>
       <Box
+        className="scroll"
         sx={{
           height: "100vh",
-
-          mx: 1,
           backgroundColor: grey[200],
           // borderTopRightRadius: "20%",
-          overflowX: "hidden",
           overflowY: "scroll",
           backgroundImage: `url(${backgroundImg})`,
           backgroundPosition: "left",
+          backgroundRepeat: "repeat-y",
         }}
       >
         <Box width="100%" mb={1}>
@@ -240,7 +239,7 @@ const Comments = ({ comments }) => {
             <ArrowDownwardRounded
               color="black"
               sx={{
-                height: "50px",
+                height: "30px",
               }}
             />
           }
@@ -249,6 +248,7 @@ const Comments = ({ comments }) => {
           sx={{
             color: "white",
             px: 1,
+            mb: 3,
           }}
           component="form"
           onSubmit={handleSubmit}
@@ -269,7 +269,7 @@ const Comments = ({ comments }) => {
                 xl: "none",
               },
             }}
-            spacing={0}
+            spacing={1}
           >
             <Grid xs={12} sm={8} md={6} lg={6} xl={6}>
               <TextField
@@ -362,6 +362,7 @@ const Comments = ({ comments }) => {
                 error={validate.comment ? true : false}
                 color="black"
                 sx={{
+                  mb: 1,
                   label: {
                     color: "white",
                   },
@@ -377,6 +378,8 @@ const Comments = ({ comments }) => {
             </Grid>
             <Button
               type="submit"
+              size="small"
+              color={darkMode ? "secondary" : "primary"}
               sx={{
                 margin: "0 auto",
                 width: "45%",

@@ -38,7 +38,12 @@ const tabData = [
   { label: "Contact", icon: ContactsRounded },
 ];
 
-const SidebarContent = ({ pageNumber, setPageNumber, handleDrawer }) => {
+const SidebarContent = ({
+  pageNumber,
+  setPageNumber,
+  handleDrawer,
+  darkMode,
+}) => {
   const [start, setStart] = useState(false);
 
   const tabProps = (index) => {
@@ -66,12 +71,12 @@ const SidebarContent = ({ pageNumber, setPageNumber, handleDrawer }) => {
     {
       href: "https://github.com/Mahdi-Hasanzadeh",
       icon: GitHub,
-      color: grey[300],
+      color: darkMode ? grey[300] : grey[900],
     },
     {
       href: "",
       icon: Instagram,
-      color: red[200],
+      color: red[900],
     },
   ];
 
@@ -104,7 +109,9 @@ const SidebarContent = ({ pageNumber, setPageNumber, handleDrawer }) => {
 
           <Typography
             textAlign={"center"}
+            color={darkMode ? "" : "text.secondary"}
             sx={{
+              fontWeight: darkMode ? "" : "bolder",
               fontSize: {
                 xs: "20px",
                 sm: "22px",
@@ -126,8 +133,10 @@ const SidebarContent = ({ pageNumber, setPageNumber, handleDrawer }) => {
 
           {start && (
             <Typography
+              color={darkMode ? "" : "text.secondary"}
               textAlign={"center"}
               sx={{
+                fontWeight: darkMode ? "" : "bolder",
                 fontSize: {
                   xs: "20px",
                   sm: "22px",
@@ -140,7 +149,7 @@ const SidebarContent = ({ pageNumber, setPageNumber, handleDrawer }) => {
               <RandomReveal
                 isPlaying
                 duration={5}
-                characters="Full stack Developer"
+                characters="Full Stack Developer"
               />
             </Typography>
           )}
@@ -199,12 +208,15 @@ const SidebarContent = ({ pageNumber, setPageNumber, handleDrawer }) => {
               // height: "20px",
               m: "5px",
               padding: "6px",
-              backgroundColor: "lightgray",
+              backgroundColor: darkMode ? "#111111" : "#c3c1c1",
               borderRadius: "10px",
               transition: "0.3s ease-in-out",
+              color: darkMode ? "white" : "black !important",
             },
             "& .MuiTab-root:hover": {
-              backgroundColor: "rgb(229, 227, 227)",
+              //rgb(229, 227, 227)
+              backgroundColor: darkMode ? "orange" : "#111111",
+              color: darkMode ? "black !important" : "white !important",
               translate: 5,
             },
           }}
@@ -251,13 +263,19 @@ const SidebarContent = ({ pageNumber, setPageNumber, handleDrawer }) => {
         }}
       >
         <Typography
+          color={darkMode ? "" : "text.secondary"}
           sx={{
+            fontWeight: darkMode ? "" : "bolder",
             textAlign: "center",
           }}
         >
           Designed By: Hasanzadeh
         </Typography>
-        <Typography>
+
+        <Typography
+          color={darkMode ? "" : "text.secondary"}
+          fontWeight={darkMode ? "" : "bolder"}
+        >
           <CopyrightRounded
             sx={{
               verticalAlign: "middle",

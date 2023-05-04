@@ -91,6 +91,12 @@
   }
 }
 
+.darkBox {
+  background-color: rgb(39, 37, 37);
+  border-radius: 10px;
+  animation: box-animation 2.5s ease-in-out alternate;
+}
+
 .box {
   background-color: rgb(232, 230, 230);
   border-radius: 10px;
@@ -223,6 +229,13 @@
   border-radius: 10px;
   cursor: pointer;
 }
+.typo-dark:hover {
+  translate: 10px;
+  color: black;
+  background-color: rgb(255, 196, 0);
+  border-radius: 10px;
+  cursor: pointer;
+}
 
 @keyframes skills {
   from {
@@ -237,13 +250,20 @@
   animation: skills 1s ease-in;
 }
 
-.skill-hover {
+.skill-hover,
+.skill-hover-dark {
   transition: linear 0.4s;
 }
 
 .skill-hover:hover {
   transform: translate(4px);
   background-color: rgb(229, 227, 227);
+  border-radius: 15px;
+  padding: 4px;
+}
+.skill-hover-dark:hover {
+  transform: translate(4px);
+  background-color: rgb(35, 30, 30);
   border-radius: 15px;
   padding: 4px;
 }
@@ -324,7 +344,7 @@
 }
 
 .typoColor {
-  color: rgb(0, 0, 0);
+  color: #000000;
   font-style: italic;
   font-weight: bolder !important;
 }

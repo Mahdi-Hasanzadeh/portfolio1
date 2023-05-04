@@ -2,8 +2,11 @@ import { Box, Divider, Chip, LinearProgress, Typography } from "@mui/material";
 
 import { useState, useEffect } from "react";
 
+import { useTheme } from "@emotion/react";
+
 const Skills = ({ skillName, percentage }) => {
   const [value, setValue] = useState(0);
+  const theme = useTheme();
 
   useEffect(() => {
     let timer = setTimeout(() => {
@@ -22,7 +25,9 @@ const Skills = ({ skillName, percentage }) => {
 
   return (
     <Box
-      className="skill-hover"
+      className={
+        theme.palette.mode === "dark" ? "skill-hover-dark" : "skill-hover"
+      }
       width={"100%"}
       sx={{
         display: "flex",
@@ -73,7 +78,11 @@ const Skills = ({ skillName, percentage }) => {
           value={value}
           variant="determinate"
         />
-        <Typography>{value}%</Typography>
+        <Typography
+          color={theme.palette.mode === "dark" ? "text.secondary" : ""}
+        >
+          {value}%
+        </Typography>
       </Box>
     </Box>
   );

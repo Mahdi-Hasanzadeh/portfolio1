@@ -11,7 +11,7 @@ import { Box, Chip, Divider, Slide, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { grey } from "@mui/material/colors";
 import { useEffect, useState } from "react";
-const Resume = () => {
+const Resume = ({ darkMode }) => {
   const [slideBoolean, setSlideBoolean] = useState(false);
 
   useEffect(() => {
@@ -19,7 +19,15 @@ const Resume = () => {
   });
 
   return (
-    <Box className="Resume-box" height={"100%"} padding={4}>
+    <Box
+      className="Resume-box scroll"
+      height={"100vh"}
+      padding={4}
+      sx={{
+        overflowX: "scroll",
+        backgroundColor: darkMode ? "#111111" : "",
+      }}
+    >
       <Grid container mb={3}>
         <Grid xs={12} sm={12} md={12} lg={12} xl={12}>
           <Slide
@@ -38,6 +46,7 @@ const Resume = () => {
               }}
             >
               <Chip
+                color="info"
                 label={
                   <Typography>
                     {" "}
@@ -116,13 +125,29 @@ const Resume = () => {
                 <TimelineSeparator>
                   <TimelineDot variant="outlined" color="warning">
                     {" "}
-                    <SchoolRounded />
+                    <SchoolRounded
+                      sx={{
+                        color: darkMode ? "white" : "black",
+                      }}
+                    />
                   </TimelineDot>
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent>
-                  <Typography>1382-1394</Typography>
-                  <Typography>Enghalab High School</Typography>
+                  <Typography
+                    sx={{
+                      color: darkMode ? "white" : "black",
+                    }}
+                  >
+                    1382-1394
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: darkMode ? "white" : "black",
+                    }}
+                  >
+                    Enghalab High School
+                  </Typography>
                 </TimelineContent>
               </TimelineItem>
             </Slide>
@@ -144,13 +169,29 @@ const Resume = () => {
                 <TimelineSeparator>
                   <TimelineDot variant="outlined" color="warning">
                     {" "}
-                    <SchoolRounded />
+                    <SchoolRounded
+                      sx={{
+                        color: darkMode ? "white" : "black",
+                      }}
+                    />
                   </TimelineDot>
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent>
-                  <Typography>1395-1398</Typography>
-                  <Typography>Medical Faculty,Herat Universitiy</Typography>
+                  <Typography
+                    sx={{
+                      color: darkMode ? "white" : "black",
+                    }}
+                  >
+                    1395-1398
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: darkMode ? "white" : "black",
+                    }}
+                  >
+                    Medical Faculty,Herat Universitiy
+                  </Typography>
                 </TimelineContent>
               </TimelineItem>
             </Slide>
@@ -172,13 +213,27 @@ const Resume = () => {
                 <TimelineSeparator>
                   <TimelineDot variant="outlined" color="warning">
                     {" "}
-                    <SchoolRounded />
+                    <SchoolRounded
+                      sx={{
+                        color: darkMode ? "white" : "black",
+                      }}
+                    />
                   </TimelineDot>
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent>
-                  <Typography>1398-1400</Typography>
-                  <Typography>
+                  <Typography
+                    sx={{
+                      color: darkMode ? "white" : "black",
+                    }}
+                  >
+                    1398-1400
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: darkMode ? "white" : "black",
+                    }}
+                  >
                     Computer Science Faculty,Ghalib University
                   </Typography>
                 </TimelineContent>
@@ -238,13 +293,29 @@ const Resume = () => {
                 <TimelineSeparator>
                   <TimelineDot variant="outlined" color="warning">
                     {" "}
-                    <SchoolRounded />
+                    <SchoolRounded
+                      sx={{
+                        color: darkMode ? "white" : "black",
+                      }}
+                    />
                   </TimelineDot>
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent>
-                  <Typography>1382-1394</Typography>
-                  <Typography>Enghalab High School</Typography>
+                  <Typography
+                    sx={{
+                      color: darkMode ? "white" : "black",
+                    }}
+                  >
+                    1382-1394
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: darkMode ? "white" : "black",
+                    }}
+                  >
+                    Enghalab High School
+                  </Typography>
                 </TimelineContent>
               </TimelineItem>
             </Slide>
@@ -266,13 +337,29 @@ const Resume = () => {
                 <TimelineSeparator>
                   <TimelineDot variant="outlined" color="warning">
                     {" "}
-                    <SchoolRounded />
+                    <SchoolRounded
+                      sx={{
+                        color: darkMode ? "white" : "black",
+                      }}
+                    />
                   </TimelineDot>
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent>
-                  <Typography>1395-1398</Typography>
-                  <Typography>Medical Faculty,Herat Universitiy</Typography>
+                  <Typography
+                    sx={{
+                      color: darkMode ? "white" : "black",
+                    }}
+                  >
+                    1395-1398
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: darkMode ? "white" : "black",
+                    }}
+                  >
+                    Medical Faculty,Herat Universitiy
+                  </Typography>
                 </TimelineContent>
               </TimelineItem>
             </Slide>
@@ -294,13 +381,27 @@ const Resume = () => {
                 <TimelineSeparator>
                   <TimelineDot variant="outlined" color="warning">
                     {" "}
-                    <SchoolRounded />
+                    <SchoolRounded
+                      sx={{
+                        color: darkMode ? "white" : "black",
+                      }}
+                    />
                   </TimelineDot>
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent>
-                  <Typography>1398-1400</Typography>
-                  <Typography>
+                  <Typography
+                    sx={{
+                      color: darkMode ? "white" : "black",
+                    }}
+                  >
+                    1398-1400
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: darkMode ? "white" : "black",
+                    }}
+                  >
                     Computer Science Faculty,Ghalib University
                   </Typography>
                 </TimelineContent>

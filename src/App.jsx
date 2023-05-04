@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { ToastContainer } from "react-toastify";
 import { SidebarContainer, Feed } from "./Components/index.js";
+import { toast } from "react-toastify";
 
 const title = [
   "Homepage",
@@ -16,8 +17,11 @@ const title = [
 ];
 
 function App({ comments }) {
+  const [darkMode, setDarkMode] = useState(true);
+
   const Theme = createTheme({
     palette: {
+      mode: darkMode ? "dark" : "light",
       black: {
         main: "#ffffff",
       },
@@ -27,6 +31,19 @@ function App({ comments }) {
       fontSize: 18,
     },
   });
+
+  const handleDarkMode = () => {
+    setDarkMode((prevData) => !prevData);
+    if (darkMode) {
+      toast.info("Dark Mode Disabled ", {
+        autoClose: 1500,
+      });
+    } else {
+      toast.info("Dark Mode Enabled", {
+        autoClose: 1500,
+      });
+    }
+  };
 
   const [pageNumber, setPageNumber] = useState(0);
 
@@ -55,6 +72,7 @@ function App({ comments }) {
             <SidebarContainer
               pageNumber={pageNumber}
               setPageNumber={handlePageNumber}
+              darkMode={darkMode}
             />
           </Grid>
           <Grid
@@ -72,6 +90,8 @@ function App({ comments }) {
               comments={comments}
               pageNumber={pageNumber}
               setPageNumber={handlePageNumber}
+              setDarkMode={handleDarkMode}
+              darkMode={darkMode}
             />
           </Grid>
         </Grid>

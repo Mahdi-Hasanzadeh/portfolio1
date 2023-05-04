@@ -31,13 +31,13 @@ const developerInfo = [
     delay: 6,
   },
 ];
-const About = () => {
+const About = ({ darkMode }) => {
   return (
     <>
       <Box
         className="scroll"
         sx={{
-          backgroundColor: "rgb(246, 241, 241)",
+          backgroundColor: darkMode ? "#111111" : "rgb(246, 241, 241)",
           height: "100vh",
           overflowY: "scroll",
           overflowX: "hidden",
@@ -77,7 +77,7 @@ const About = () => {
               <Grid xs={12} sm={8} md={9} lg={8} xl={10}>
                 {/* content */}
                 <Box
-                  className="box"
+                  className={darkMode ? "darkBox" : "box"}
                   sx={{
                     display: "flex",
                     alignItems: "flex-start",
@@ -89,7 +89,12 @@ const About = () => {
                   }}
                 >
                   <Typography
-                    className="typo-fullname typo"
+                    className={
+                      darkMode
+                        ? "typo-fullname typo-dark"
+                        : "typo-fullname typo"
+                    }
+                    color={darkMode ? "text.primary" : ""}
                     sx={{
                       fontSize: {
                         xs: "19px",
@@ -113,7 +118,12 @@ const About = () => {
                   </Typography>
 
                   <Typography
-                    className="typo-age typo"
+                    className={
+                      darkMode
+                        ? "typo-fullname typo-dark"
+                        : "typo-fullname typo"
+                    }
+                    color={darkMode ? "text.primary" : ""}
                     sx={{
                       fontSize: {
                         xs: "19px",
@@ -137,7 +147,12 @@ const About = () => {
                   </Typography>
 
                   <Typography
-                    className="typo-city typo"
+                    className={
+                      darkMode
+                        ? "typo-fullname typo-dark"
+                        : "typo-fullname typo"
+                    }
+                    color={darkMode ? "text.primary" : ""}
                     sx={{
                       fontSize: {
                         xs: "19px",
@@ -161,7 +176,12 @@ const About = () => {
                   </Typography>
 
                   <Typography
-                    className="typo-phone-number typo"
+                    className={
+                      darkMode
+                        ? "typo-fullname typo-dark"
+                        : "typo-fullname typo"
+                    }
+                    color={darkMode ? "text.primary" : ""}
                     sx={{
                       fontSize: {
                         xs: "19px",
@@ -185,7 +205,12 @@ const About = () => {
                   </Typography>
 
                   <Typography
-                    className="typo-email typo"
+                    className={
+                      darkMode
+                        ? "typo-fullname typo-dark"
+                        : "typo-fullname typo"
+                    }
+                    color={darkMode ? "text.primary" : ""}
                     sx={{
                       fontSize: {
                         xs: "19px",

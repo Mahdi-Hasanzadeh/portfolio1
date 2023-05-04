@@ -140,6 +140,7 @@ const Contact = () => {
 
   return (
     <Box
+      className="scroll"
       sx={{
         height: "100vh",
         overflowY: "scroll",
