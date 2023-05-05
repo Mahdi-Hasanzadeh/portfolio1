@@ -97,16 +97,21 @@ function App({ comments }) {
               color: "white",
 
               width: { xs: "90%", sm: "70%", md: "50%" },
+              height: { xs: "100vh", md: "90%" },
               textAlign: "left",
-              p: 4,
+              p: 2,
+
+              overflowY: "scroll",
 
               // opacity: 0.9,
             }}
           >
-            <Typography>Hello There</Typography>
+            <Typography sx={{ mb: 1 }}>Hello There</Typography>
             <Typography
+              textAlign="justify"
               variant="body1"
               sx={{
+                textIndent: 7,
                 opacity: 1,
                 mb: 2,
               }}
@@ -119,9 +124,40 @@ function App({ comments }) {
                   textDecoration: "underline",
                 }}
               >
-                React
+                React.{"  "}
               </span>
-              .If you are on{" "}
+              For Designing part,I use{" "}
+              <span
+                style={{
+                  color: "orange",
+                  textDecoration: "underline",
+                }}
+              >
+                {" "}
+                MUI (Material UI){" "}
+              </span>{" "}
+              <br />
+              You change{" "}
+              <span
+                style={{
+                  color: "orange",
+                  textDecoration: "underline",
+                }}
+              >
+                Theme
+              </span>{" "}
+              of the Website by clicking on the button at the top right corner
+              of your device.Defautl Theme will be choosed based on your{" "}
+              <span
+                style={{
+                  color: "orange",
+                  textDecoration: "underline",
+                }}
+              >
+                System Theme Mode.
+              </span>
+              <br />
+              If you are on{" "}
               <span
                 style={{
                   color: "orange",
@@ -140,8 +176,9 @@ function App({ comments }) {
                 Swipe
               </span>{" "}
               between tabs.If you see any bugs and problems in this project,you
-              can send me message through Comment Tab. Thank you so much
+              can send me message through Comment Tab.
             </Typography>
+            <Typography textAlign="justify">Thanks</Typography>
             <Typography textAlign="center">Developed By</Typography>
             <Typography textAlign="center" mb={2}>
               Mahdi Hasanzadeh
