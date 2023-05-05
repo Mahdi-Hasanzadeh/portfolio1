@@ -96,9 +96,9 @@ function App({ comments }) {
               backgroundColor: "grey",
               color: "white",
 
-              width: 1 / 2,
+              width: { xs: "90%", sm: "70%", md: "50%" },
               textAlign: "left",
-              p: 2,
+              p: 4,
 
               // opacity: 0.9,
             }}
