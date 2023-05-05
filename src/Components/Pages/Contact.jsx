@@ -14,17 +14,11 @@ import Grid from "@mui/material/Unstable_Grid2";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
+// import ReCAPTCHA from "react-google-recaptcha";
+
 const Contact = () => {
   const [checked, setChecked] = useState(false);
-
-  useEffect(() => {
-    setChecked(true);
-
-    return () => {
-      setChecked(false);
-    };
-  });
-
+  const theme = useTheme();
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -34,6 +28,14 @@ const Contact = () => {
       email: false,
       comment: false,
     },
+  });
+
+  useEffect(() => {
+    setChecked(true);
+
+    return () => {
+      setChecked(false);
+    };
   });
 
   const handleChange = (e) => {
@@ -101,12 +103,15 @@ const Contact = () => {
   };
   //#endregion
 
+  //#region validating Form Data
   let validate = validation(
     formData.fullName,
     formData.email,
     formData.comment
   );
+  //#endregion
 
+  //#region handleSubmit arrow function
   const handleSubmit = () => {
     if (
       formData.fullName === "" &&
@@ -144,6 +149,39 @@ const Contact = () => {
       }
     }
   };
+  //#endregion
+
+  //#region Data for inputs of Form
+  const inputsData = [
+    {
+      name: "fullName",
+      value: formData.fullName,
+      validate: validate.fullName ? true : false,
+      helperText: validate.fullName,
+      color: "black",
+      label: "Full Name",
+      placeholder: "FullName...",
+    },
+    {
+      name: "email",
+      value: formData.email,
+      validate: validate.email ? true : false,
+      helperText: validate.email,
+      color: "black",
+      label: "Email",
+      placeholder: "Email...",
+    },
+    {
+      name: "comment",
+      value: formData.comment,
+      validate: validate.comment ? true : false,
+      helperText: validate.comment,
+      color: "black",
+      label: "Description",
+      placeholder: "Write Your Eamil Here...",
+    },
+  ];
+  //#endregion
 
   return (
     <Box
@@ -156,6 +194,7 @@ const Contact = () => {
         py: 1,
       }}
     >
+      {/* Divider Section */}
       <Slide
         direction="down"
         in={checked}
@@ -191,6 +230,8 @@ const Contact = () => {
       >
         <Typography variant="h6">Send Us Your Email</Typography>
       </Box>
+
+      {/* Form Section */}
       <Box
         component="form"
         autoComplete="false"
@@ -208,144 +249,86 @@ const Contact = () => {
           mx={2}
           justifyContent={"center"}
         >
-          <Grid xs={10} sm={6} md={6} lg={4} xl={6}>
-            <TextField
-              onChange={handleChange}
-              onBlur={handleBlur}
-              name="fullName"
-              value={formData.fullName}
-              error={validate.fullName ? true : false}
-              helperText={
-                validate.fullName ? (
-                  <Typography
-                    textAlign={"center"}
-                    sx={{
-                      fontSize: { xs: "14px", sm: "20px" },
-                    }}
-                  >
-                    {validate.fullName}
-                  </Typography>
-                ) : null
-              }
-              color="black"
-              fullWidth
-              required
-              variant="filled"
-              placeholder="Full Name"
-              label={
-                <Typography display={"inline-block"} fontSize={28}>
-                  Full Name
-                </Typography>
-              }
-              sx={{
-                padding: 1,
-                label: {
-                  color: "white",
-                },
-                input: {
-                  color: "white",
-                },
-              }}
-            />
-          </Grid>
+          {inputsData.map((item, index) => {
+            return (
+              <Grid
+                key={index}
+                xs={10}
+                sm={index === 2 ? 10 : 6}
+                md={index === 2 ? 12 : 6}
+                lg={index === 2 ? 6 : 4}
+                xl={index === 2 ? 12 : 6}
+              >
+                <TextField
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  name={item.name}
+                  value={item.value}
+                  error={item.validate}
+                  color={item.color}
+                  fullWidth
+                  required
+                  variant="filled"
+                  placeholder={item.placeholder}
+                  helperText={
+                    item.validate ? (
+                      <Typography
+                        component={"span"}
+                        display="block"
+                        textAlign="center"
+                        sx={{
+                          fontSize: { xs: "14px", sm: "20px" },
+                        }}
+                      >
+                        {item.helperText}
+                      </Typography>
+                    ) : null
+                  }
+                  label={
+                    <Typography
+                      display={"inline-block"}
+                      variant="body1"
+                      fontSize={28}
+                    >
+                      {item.label}
+                    </Typography>
+                  }
+                  sx={{
+                    padding: 1.3,
+                    fontSize: 28,
+                    label: {
+                      color: "white",
+                    },
+                    input: {
+                      color: "white",
+                    },
+                  }}
+                  multiline={index === 2 ? true : false}
+                  rows={index === 2 ? 4 : 0}
+                  inputProps={
+                    index === 2
+                      ? {
+                          style: {
+                            color: "white",
+                            textIndent: "10px",
+                            marginTop: "2px",
+                          },
+                        }
+                      : {}
+                  }
+                />
+              </Grid>
+            );
+          })}
 
-          <Grid xs={10} sm={6} md={6} lg={4} xl={6}>
-            <TextField
-              onChange={handleChange}
-              onBlur={handleBlur}
-              name="email"
-              value={formData.email}
-              error={validate.email ? true : false}
-              helperText={
-                validate.email ? (
-                  <Typography
-                    textAlign={"center"}
-                    sx={{
-                      fontSize: { xs: "14px", sm: "20px" },
-                    }}
-                  >
-                    {validate.email}
-                  </Typography>
-                ) : null
-              }
-              fullWidth
-              placeholder="Email"
-              color="black"
-              sx={{
-                padding: 1,
-                fontSize: 28,
-                label: {
-                  color: "white",
-                },
-                input: {
-                  color: "white",
-                },
-              }}
-              required
-              variant="filled"
-              label={
-                <Typography
-                  display={"inline-block"}
-                  fontSize={24}
-                  variant="body1"
-                >
-                  Email Address
-                </Typography>
-              }
-            />
-          </Grid>
-
-          <Grid xs={10} sm={10} md={12} lg={6} xl={12}>
-            <TextField
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={formData.comment}
-              error={validate.comment ? true : false}
-              helperText={
-                validate.comment ? (
-                  <Typography
-                    textAlign={"center"}
-                    sx={{
-                      fontSize: { xs: "14px", sm: "20px" },
-                    }}
-                  >
-                    {validate.comment}
-                  </Typography>
-                ) : null
-              }
-              name="comment"
-              multiline={true}
-              rows={4}
-              fullWidth
-              color="black"
-              required
-              className="textarea"
-              variant="filled"
-              inputProps={{
-                style: { color: "white", textIndent: "10px", marginTop: "2px" },
-              }}
-              placeholder="Write Your Eamil Here..."
-              label={
-                <Typography display={"inline-block"} fontSize={28}>
-                  Description
-                </Typography>
-              }
-              sx={{
-                padding: 1.3,
-                label: {
-                  color: "white",
-                },
-                input: {
-                  color: "white",
-                },
-              }}
-            />
-          </Grid>
+          {/* <ReCAPTCHA theme={theme.palette.mode} /> */}
           {/* <Grid xs={10} sm={10} md={12} lg={6} xl={12}>
             
           </Grid> */}
         </Grid>
       </Box>
+
+      {/* Button For Submitting Form */}
       <Box
         sx={{
           display: "flex",

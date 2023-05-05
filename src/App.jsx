@@ -21,7 +21,6 @@ function App({ comments }) {
   const [darkMode, setDarkMode] = useState(true);
 
   const prefersColorScheme = useMediaQuery(`(prefers-color-scheme:dark)`);
-  console.log(prefersColorScheme);
 
   useEffect(() => {
     if (prefersColorScheme) {
