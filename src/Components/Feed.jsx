@@ -14,7 +14,13 @@ import { DarkModeRounded, LightModeRounded } from "@mui/icons-material";
 
 import { useTheme } from "@mui/material";
 
-const Feed = ({ pageNumber, setPageNumber, comments, setDarkMode }) => {
+const Feed = ({
+  pageNumber,
+
+  comments,
+  setDarkMode,
+  handlePageIndex,
+}) => {
   const theme = useTheme();
 
   const TabPanel = ({ children, index, pageNumber }) => {
@@ -57,7 +63,7 @@ const Feed = ({ pageNumber, setPageNumber, comments, setDarkMode }) => {
         </Fab>
       </Tooltip>
 
-      <SwipeableViews index={pageNumber} onChangeIndex={setPageNumber}>
+      <SwipeableViews index={pageNumber} onChangeIndex={handlePageIndex}>
         <TabPanel index={0} pageNumber={pageNumber}>
           <Homepage />
         </TabPanel>
