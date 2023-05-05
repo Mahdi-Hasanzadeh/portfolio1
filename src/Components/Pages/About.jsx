@@ -11,6 +11,8 @@ import CountUp from "react-countup";
 import Mahdi from "../../assets/MahdiHasanzadeh.jpg";
 
 import Skills from "../Skills";
+import { useTheme } from "@mui/material";
+
 const developerInfo = [
   {
     tooltipTitle: "Projects Done",
@@ -31,13 +33,16 @@ const developerInfo = [
     delay: 6,
   },
 ];
-const About = ({ darkMode }) => {
+
+const About = () => {
+  const theme = useTheme();
   return (
     <>
       <Box
         className="scroll"
         sx={{
-          backgroundColor: darkMode ? "#111111" : "rgb(246, 241, 241)",
+          backgroundColor:
+            theme.palette.mode === "dark" ? "#111111" : "rgb(246, 241, 241)",
           height: "100vh",
           overflowY: "scroll",
           overflowX: "hidden",
@@ -77,7 +82,7 @@ const About = ({ darkMode }) => {
               <Grid xs={12} sm={8} md={9} lg={8} xl={10}>
                 {/* content */}
                 <Box
-                  className={darkMode ? "darkBox" : "box"}
+                  className={theme.palette.mode === "dark" ? "darkBox" : "box"}
                   sx={{
                     display: "flex",
                     alignItems: "flex-start",
@@ -90,11 +95,11 @@ const About = ({ darkMode }) => {
                 >
                   <Typography
                     className={
-                      darkMode
+                      theme.palette.mode === "dark"
                         ? "typo-fullname typo-dark"
                         : "typo-fullname typo"
                     }
-                    color={darkMode ? "text.primary" : ""}
+                    color={theme.palette.mode === "dark" ? "text.primary" : ""}
                     sx={{
                       fontSize: {
                         xs: "19px",
@@ -119,11 +124,11 @@ const About = ({ darkMode }) => {
 
                   <Typography
                     className={
-                      darkMode
+                      theme.palette.mode === "dark"
                         ? "typo-fullname typo-dark"
                         : "typo-fullname typo"
                     }
-                    color={darkMode ? "text.primary" : ""}
+                    color={theme.palette.mode === "dark" ? "text.primary" : ""}
                     sx={{
                       fontSize: {
                         xs: "19px",
@@ -148,11 +153,11 @@ const About = ({ darkMode }) => {
 
                   <Typography
                     className={
-                      darkMode
+                      theme.palette.mode === "dark"
                         ? "typo-fullname typo-dark"
                         : "typo-fullname typo"
                     }
-                    color={darkMode ? "text.primary" : ""}
+                    color={theme.palette.mode === "dark" ? "text.primary" : ""}
                     sx={{
                       fontSize: {
                         xs: "19px",
@@ -177,11 +182,11 @@ const About = ({ darkMode }) => {
 
                   <Typography
                     className={
-                      darkMode
+                      theme.palette.mode === "dark"
                         ? "typo-fullname typo-dark"
                         : "typo-fullname typo"
                     }
-                    color={darkMode ? "text.primary" : ""}
+                    color={theme.palette.mode === "dark" ? "text.primary" : ""}
                     sx={{
                       fontSize: {
                         xs: "19px",
@@ -206,11 +211,11 @@ const About = ({ darkMode }) => {
 
                   <Typography
                     className={
-                      darkMode
+                      theme.palette.mode === "dark"
                         ? "typo-fullname typo-dark"
                         : "typo-fullname typo"
                     }
-                    color={darkMode ? "text.primary" : ""}
+                    color={theme.palette.mode === "dark" ? "text.primary" : ""}
                     sx={{
                       fontSize: {
                         xs: "19px",

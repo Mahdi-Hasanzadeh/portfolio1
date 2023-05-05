@@ -17,6 +17,8 @@ import {
 import { styled } from "@mui/material/styles";
 import { grey, red } from "@mui/material/colors";
 
+import { useTheme } from "@mui/material";
+
 const tabData = [
   {
     label: "homepage",
@@ -38,14 +40,9 @@ const tabData = [
   { label: "Contact", icon: ContactsRounded },
 ];
 
-const SidebarContent = ({
-  pageNumber,
-  setPageNumber,
-  handleDrawer,
-  darkMode,
-}) => {
+const SidebarContent = ({ pageNumber, setPageNumber, handleDrawer }) => {
   const [start, setStart] = useState(false);
-
+  const theme = useTheme();
   const tabProps = (index) => {
     return {
       id: `tab-index-${index}`,
@@ -71,7 +68,7 @@ const SidebarContent = ({
     {
       href: "https://github.com/Mahdi-Hasanzadeh",
       icon: GitHub,
-      color: darkMode ? grey[300] : grey[900],
+      color: theme.palette.mode === "dark" ? grey[300] : grey[900],
     },
     {
       href: "",
@@ -109,9 +106,9 @@ const SidebarContent = ({
 
           <Typography
             textAlign={"center"}
-            color={darkMode ? "" : "text.secondary"}
+            color={theme.palette.mode === "dark" ? "" : "text.secondary"}
             sx={{
-              fontWeight: darkMode ? "" : "bolder",
+              fontWeight: theme.palette.mode === "dark" ? "" : "bolder",
               fontSize: {
                 xs: "20px",
                 sm: "22px",
@@ -133,10 +130,10 @@ const SidebarContent = ({
 
           {start && (
             <Typography
-              color={darkMode ? "" : "text.secondary"}
+              color={theme.palette.mode === "dark" ? "" : "text.secondary"}
               textAlign={"center"}
               sx={{
-                fontWeight: darkMode ? "" : "bolder",
+                fontWeight: theme.palette.mode === "dark" ? "" : "bolder",
                 fontSize: {
                   xs: "20px",
                   sm: "22px",
@@ -208,15 +205,21 @@ const SidebarContent = ({
               // height: "20px",
               m: "5px",
               padding: "6px",
-              backgroundColor: darkMode ? "#111111" : "#c3c1c1",
+              backgroundColor:
+                theme.palette.mode === "dark" ? "#111111" : "#c3c1c1",
               borderRadius: "10px",
               transition: "0.3s ease-in-out",
-              color: darkMode ? "white" : "black !important",
+              color:
+                theme.palette.mode === "dark" ? "white" : "black !important",
             },
             "& .MuiTab-root:hover": {
               //rgb(229, 227, 227)
-              backgroundColor: darkMode ? "orange" : "#111111",
-              color: darkMode ? "black !important" : "white !important",
+              backgroundColor:
+                theme.palette.mode === "dark" ? "orange" : "#111111",
+              color:
+                theme.palette.mode === "dark"
+                  ? "black !important"
+                  : "white !important",
               translate: 5,
             },
           }}
@@ -263,9 +266,9 @@ const SidebarContent = ({
         }}
       >
         <Typography
-          color={darkMode ? "" : "text.secondary"}
+          color={theme.palette.mode === "dark" ? "" : "text.secondary"}
           sx={{
-            fontWeight: darkMode ? "" : "bolder",
+            fontWeight: theme.palette.mode === "dark" ? "" : "bolder",
             textAlign: "center",
           }}
         >
@@ -273,8 +276,8 @@ const SidebarContent = ({
         </Typography>
 
         <Typography
-          color={darkMode ? "" : "text.secondary"}
-          fontWeight={darkMode ? "" : "bolder"}
+          color={theme.palette.mode === "dark" ? "" : "text.secondary"}
+          fontWeight={theme.palette.mode === "dark" ? "" : "bolder"}
         >
           <CopyrightRounded
             sx={{

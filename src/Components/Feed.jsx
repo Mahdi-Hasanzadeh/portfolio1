@@ -12,13 +12,11 @@ import {
 import SwipeableViews from "react-swipeable-views";
 import { DarkModeRounded, LightModeRounded } from "@mui/icons-material";
 
-const Feed = ({
-  pageNumber,
-  setPageNumber,
-  comments,
-  darkMode,
-  setDarkMode,
-}) => {
+import { useTheme } from "@mui/material";
+
+const Feed = ({ pageNumber, setPageNumber, comments, setDarkMode }) => {
+  const theme = useTheme();
+
   const TabPanel = ({ children, index, pageNumber }) => {
     return (
       <div
@@ -35,7 +33,11 @@ const Feed = ({
     <>
       <Tooltip
         arrow
-        title={darkMode ? "Enable Light Mode" : "Enable Dark Mode"}
+        title={
+          theme.palette.mode === "dark"
+            ? "Enable Light Mode"
+            : "Enable Dark Mode"
+        }
         placement="left"
       >
         <Fab
@@ -47,7 +49,11 @@ const Feed = ({
             right: 9,
           }}
         >
-          {darkMode ? <DarkModeRounded /> : <LightModeRounded />}
+          {theme.palette.mode === "dark" ? (
+            <DarkModeRounded />
+          ) : (
+            <LightModeRounded />
+          )}
         </Fab>
       </Tooltip>
 
@@ -56,19 +62,19 @@ const Feed = ({
           <Homepage />
         </TabPanel>
         <TabPanel index={1} pageNumber={pageNumber}>
-          <About darkMode={darkMode} />
+          <About />
         </TabPanel>
         <TabPanel index={2} pageNumber={pageNumber}>
-          <Resume darkMode={darkMode} />
+          <Resume />
         </TabPanel>
         <TabPanel index={3} pageNumber={pageNumber}>
-          <WorkSamples darkMode={darkMode} />
+          <WorkSamples />
         </TabPanel>
         <TabPanel index={4} pageNumber={pageNumber}>
-          <Comments darkMode={darkMode} comments={comments} />
+          <Comments comments={comments} />
         </TabPanel>
         <TabPanel index={5} pageNumber={pageNumber}>
-          <Contact darkMode={darkMode} />
+          <Contact />
         </TabPanel>
       </SwipeableViews>
     </>

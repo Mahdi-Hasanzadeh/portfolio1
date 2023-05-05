@@ -1,11 +1,12 @@
 import Grid from "@mui/material/Unstable_Grid2";
 import { createTheme } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { ToastContainer } from "react-toastify";
 import { SidebarContainer, Feed } from "./Components/index.js";
 import { toast } from "react-toastify";
+import { useMediaQuery } from "@mui/material";
 
 const title = [
   "Homepage",
@@ -18,6 +19,17 @@ const title = [
 
 function App({ comments }) {
   const [darkMode, setDarkMode] = useState(true);
+
+  const prefersColorScheme = useMediaQuery(`(prefers-color-scheme:dark)`);
+  console.log(prefersColorScheme);
+
+  useEffect(() => {
+    if (prefersColorScheme) {
+      setDarkMode(true);
+    } else {
+      setDarkMode(false);
+    }
+  }, [prefersColorScheme]);
 
   const Theme = createTheme({
     palette: {
@@ -72,7 +84,6 @@ function App({ comments }) {
             <SidebarContainer
               pageNumber={pageNumber}
               setPageNumber={handlePageNumber}
-              darkMode={darkMode}
             />
           </Grid>
           <Grid
@@ -91,7 +102,6 @@ function App({ comments }) {
               pageNumber={pageNumber}
               setPageNumber={handlePageNumber}
               setDarkMode={handleDarkMode}
-              darkMode={darkMode}
             />
           </Grid>
         </Grid>

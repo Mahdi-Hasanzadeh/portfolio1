@@ -12,7 +12,6 @@ import {
   Slide,
   Typography,
   useTheme,
-  useMediaQuery,
 } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import Grid from "@mui/material/Unstable_Grid2";
@@ -44,7 +43,7 @@ const WorkSamplesInfo = [
   },
 ];
 
-const WorkSamples = ({ darkMode }) => {
+const WorkSamples = () => {
   const [checked, setChecked] = useState(false);
   const theme = useTheme();
 
@@ -62,7 +61,8 @@ const WorkSamples = ({ darkMode }) => {
         sx={{
           py: 2,
           height: "100vh",
-          backgroundColor: darkMode ? "rgb(35, 30, 30)" : grey[200],
+          backgroundColor:
+            theme.palette.mode === "dark" ? "rgb(35, 30, 30)" : grey[200],
           overflowY: "scroll",
           // borderTopRightRadius: "30%",
         }}

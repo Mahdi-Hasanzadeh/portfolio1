@@ -19,8 +19,10 @@ import Slider from "react-slick";
 
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { useTheme } from "@mui/material";
+const Comments = ({ comments }) => {
+  const theme = useTheme();
 
-const Comments = ({ comments, darkMode }) => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -379,7 +381,7 @@ const Comments = ({ comments, darkMode }) => {
             <Button
               type="submit"
               size="small"
-              color={darkMode ? "secondary" : "primary"}
+              color={theme.palette.mode === "dark" ? "secondary" : "primary"}
               sx={{
                 margin: "0 auto",
                 width: "45%",

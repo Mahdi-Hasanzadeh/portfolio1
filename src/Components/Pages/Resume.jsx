@@ -9,11 +9,11 @@ import {
 } from "@mui/lab";
 import { Box, Chip, Divider, Slide, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-import { grey } from "@mui/material/colors";
+import { useTheme } from "@mui/material";
 import { useEffect, useState } from "react";
-const Resume = ({ darkMode }) => {
+const Resume = () => {
   const [slideBoolean, setSlideBoolean] = useState(false);
-
+  const theme = useTheme();
   useEffect(() => {
     setSlideBoolean(true);
   });
@@ -25,7 +25,7 @@ const Resume = ({ darkMode }) => {
       padding={4}
       sx={{
         overflowX: "scroll",
-        backgroundColor: darkMode ? "#111111" : "",
+        backgroundColor: theme.palette.mode === "dark" ? "#111111" : "",
       }}
     >
       <Grid container mb={3}>
@@ -127,7 +127,8 @@ const Resume = ({ darkMode }) => {
                     {" "}
                     <SchoolRounded
                       sx={{
-                        color: darkMode ? "white" : "black",
+                        color:
+                          theme.palette.mode === "dark" ? "white" : "black",
                       }}
                     />
                   </TimelineDot>
@@ -136,14 +137,14 @@ const Resume = ({ darkMode }) => {
                 <TimelineContent>
                   <Typography
                     sx={{
-                      color: darkMode ? "white" : "black",
+                      color: theme.palette.mode === "dark" ? "white" : "black",
                     }}
                   >
                     1382-1394
                   </Typography>
                   <Typography
                     sx={{
-                      color: darkMode ? "white" : "black",
+                      color: theme.palette.mode === "dark" ? "white" : "black",
                     }}
                   >
                     Enghalab High School
@@ -171,7 +172,8 @@ const Resume = ({ darkMode }) => {
                     {" "}
                     <SchoolRounded
                       sx={{
-                        color: darkMode ? "white" : "black",
+                        color:
+                          theme.palette.mode === "dark" ? "white" : "black",
                       }}
                     />
                   </TimelineDot>
@@ -180,14 +182,14 @@ const Resume = ({ darkMode }) => {
                 <TimelineContent>
                   <Typography
                     sx={{
-                      color: darkMode ? "white" : "black",
+                      color: theme.palette.mode === "dark" ? "white" : "black",
                     }}
                   >
                     1395-1398
                   </Typography>
                   <Typography
                     sx={{
-                      color: darkMode ? "white" : "black",
+                      color: theme.palette.mode === "dark" ? "white" : "black",
                     }}
                   >
                     Medical Faculty,Herat Universitiy
@@ -215,7 +217,8 @@ const Resume = ({ darkMode }) => {
                     {" "}
                     <SchoolRounded
                       sx={{
-                        color: darkMode ? "white" : "black",
+                        color:
+                          theme.palette.mode === "dark" ? "white" : "black",
                       }}
                     />
                   </TimelineDot>
@@ -224,14 +227,14 @@ const Resume = ({ darkMode }) => {
                 <TimelineContent>
                   <Typography
                     sx={{
-                      color: darkMode ? "white" : "black",
+                      color: theme.palette.mode === "dark" ? "white" : "black",
                     }}
                   >
                     1398-1400
                   </Typography>
                   <Typography
                     sx={{
-                      color: darkMode ? "white" : "black",
+                      color: theme.palette.mode === "dark" ? "white" : "black",
                     }}
                   >
                     Computer Science Faculty,Ghalib University
@@ -275,6 +278,7 @@ const Resume = ({ darkMode }) => {
               />
             </Divider>
           </Slide>
+
           <Timeline position="alternate">
             <Slide
               direction="up"
@@ -295,7 +299,8 @@ const Resume = ({ darkMode }) => {
                     {" "}
                     <SchoolRounded
                       sx={{
-                        color: darkMode ? "white" : "black",
+                        color:
+                          theme.palette.mode === "dark" ? "white" : "black",
                       }}
                     />
                   </TimelineDot>
@@ -304,14 +309,14 @@ const Resume = ({ darkMode }) => {
                 <TimelineContent>
                   <Typography
                     sx={{
-                      color: darkMode ? "white" : "black",
+                      color: theme.palette.mode === "dark" ? "white" : "black",
                     }}
                   >
                     1382-1394
                   </Typography>
                   <Typography
                     sx={{
-                      color: darkMode ? "white" : "black",
+                      color: theme.palette.mode === "dark" ? "white" : "black",
                     }}
                   >
                     Enghalab High School
@@ -339,7 +344,8 @@ const Resume = ({ darkMode }) => {
                     {" "}
                     <SchoolRounded
                       sx={{
-                        color: darkMode ? "white" : "black",
+                        color:
+                          theme.palette.mode === "dark" ? "white" : "black",
                       }}
                     />
                   </TimelineDot>
@@ -348,14 +354,14 @@ const Resume = ({ darkMode }) => {
                 <TimelineContent>
                   <Typography
                     sx={{
-                      color: darkMode ? "white" : "black",
+                      color: theme.palette.mode === "dark" ? "white" : "black",
                     }}
                   >
                     1395-1398
                   </Typography>
                   <Typography
                     sx={{
-                      color: darkMode ? "white" : "black",
+                      color: theme.palette.mode === "dark" ? "white" : "black",
                     }}
                   >
                     Medical Faculty,Herat Universitiy
@@ -383,7 +389,8 @@ const Resume = ({ darkMode }) => {
                     {" "}
                     <SchoolRounded
                       sx={{
-                        color: darkMode ? "white" : "black",
+                        color:
+                          theme.palette.mode === "dark" ? "white" : "black",
                       }}
                     />
                   </TimelineDot>
@@ -392,14 +399,14 @@ const Resume = ({ darkMode }) => {
                 <TimelineContent>
                   <Typography
                     sx={{
-                      color: darkMode ? "white" : "black",
+                      color: theme.palette.mode === "dark" ? "white" : "black",
                     }}
                   >
                     1398-1400
                   </Typography>
                   <Typography
                     sx={{
-                      color: darkMode ? "white" : "black",
+                      color: theme.palette.mode === "dark" ? "white" : "black",
                     }}
                   >
                     Computer Science Faculty,Ghalib University
