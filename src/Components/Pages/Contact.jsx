@@ -107,34 +107,40 @@ const Contact = () => {
   );
 
   const handleSubmit = () => {
-    setFormData((prevData) => {
-      return {
-        ...prevData,
-        focused: {
-          fullName: true,
-          email: true,
-          comment: true,
-        },
-      };
-    });
-    if (!validate.fullName && !validate.email && !validate.comment) {
-      toast.info(`Thanks for your email Mr.${formData.fullName}`, {
-        position: "top-right",
-      });
-      setFormData({
-        fullName: "",
-        email: "",
-        comment: "",
-        focused: {
-          fullName: false,
-          email: false,
-          comment: false,
-        },
-      });
-    } else {
+    if (
+      formData.fullName === "" &&
+      formData.email === "" &&
+      formData.comment === ""
+    ) {
       toast.error("Please Fill out the Form", {
         autoClose: 1500,
       });
+      setFormData((prevData) => {
+        return {
+          ...prevData,
+          focused: {
+            fullName: true,
+            email: true,
+            comment: true,
+          },
+        };
+      });
+    } else {
+      if (!validate.fullName && !validate.email && !validate.comment) {
+        toast.info(`Thanks for your email Mr.${formData.fullName}`, {
+          position: "top-right",
+        });
+        setFormData({
+          fullName: "",
+          email: "",
+          comment: "",
+          focused: {
+            fullName: false,
+            email: false,
+            comment: false,
+          },
+        });
+      }
     }
   };
 
@@ -334,6 +340,9 @@ const Contact = () => {
               }}
             />
           </Grid>
+          {/* <Grid xs={10} sm={10} md={12} lg={6} xl={12}>
+            
+          </Grid> */}
         </Grid>
       </Box>
       <Box
