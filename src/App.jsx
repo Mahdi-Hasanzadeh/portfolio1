@@ -133,7 +133,7 @@ function App({ comments }) {
                 MUI (Material UI){" "}
               </span>{" "}
               <br />
-              You change{" "}
+              You can change{" "}
               <span
                 style={{
                   color: "orange",
@@ -143,7 +143,7 @@ function App({ comments }) {
                 Theme
               </span>{" "}
               of the Website by clicking on the button at the top right corner
-              of your device.Defautl Theme will be choosed based on your{" "}
+              of your device.Default theme will be choosed based on your{" "}
               <span
                 style={{
                   color: "orange",
