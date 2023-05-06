@@ -95,15 +95,11 @@ function App({ comments }) {
             sx={{
               backgroundColor: "grey",
               color: "white",
-
               width: { xs: "90%", sm: "70%", md: "50%" },
               height: { xs: "100vh", md: "90%" },
               textAlign: "left",
-              p: 2,
-
+              p: 4,
               overflowY: "scroll",
-
-              // opacity: 0.9,
             }}
           >
             <Typography sx={{ mb: 1 }}>Hello There</Typography>
